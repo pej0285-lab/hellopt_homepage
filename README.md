@@ -4,7 +4,9 @@ Korean promotional homepage for Park Eunjin, Microsoft Certified Trainer and AI 
 
 ## Demo
 
-https://pej0285-lab.github.io/hellopt_homepage/
+Netlify: https://hellopt-homepage.netlify.app/
+
+GitHub Pages: https://pej0285-lab.github.io/hellopt_homepage/
 
 ## Features
 
