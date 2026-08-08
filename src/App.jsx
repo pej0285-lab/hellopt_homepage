@@ -351,10 +351,10 @@ function App() {
               <fieldset>
                 <legend><span className="legend-icon"><BookOpenCheck size={18} aria-hidden="true" /></span><span>교육 조건</span></legend>
                 <div className="form-grid">
-                  <label><span className="label-text">교육 주제 <b>*</b></span><select name="교육 주제" required defaultValue=""><option value="" disabled>선택해주세요</option><option>생성형 AI 업무 활용</option><option>Microsoft 365 Copilot</option><option>Copilot Studio Agent 제작</option><option>엑셀 데이터 분석</option><option>PT 디자인 및 제안서 작성</option></select></label>
-                  <label><span className="label-text">희망 일정</span><select name="희망 일정" defaultValue=""><option value="" disabled>선택해주세요</option><option>1개월 이내</option><option>1~3개월 이내</option><option>3개월 이후</option><option>협의 필요</option></select></label>
-                  <label><span className="label-text">교육 대상·인원</span><select name="교육 대상·인원" defaultValue=""><option value="" disabled>선택해주세요</option><option>신입/주니어 10명 내외</option><option>실무자 20~30명</option><option>리더/관리자 과정</option><option>전사 특강</option></select></label>
-                  <label><span className="label-text">진행 방식</span><select name="진행 방식" defaultValue=""><option value="" disabled>선택해주세요</option><option>오프라인</option><option>온라인</option><option>온·오프라인 혼합</option><option>협의 필요</option></select></label>
+                  <label><span className="label-text">교육 주제 <b>*</b></span><input name="교육 주제" type="text" placeholder="예: 생성형 AI 업무 활용, Copilot Studio Agent 제작" required /></label>
+                  <label><span className="label-text">희망 일정</span><input name="희망 일정" type="text" placeholder="예: 10월 중 1일, 1~3개월 이내, 협의 가능" /></label>
+                  <label><span className="label-text">교육 대상·인원</span><input name="교육 대상·인원" type="text" placeholder="예: 신입사원 30명, 실무자 20명 내외" /></label>
+                  <label><span className="label-text">진행 방식</span><input name="진행 방식" type="text" placeholder="예: 오프라인, 온라인, 온·오프라인 혼합" /></label>
                 </div>
               </fieldset>
 
