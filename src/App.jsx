@@ -2,7 +2,7 @@ import { BookOpenCheck, ClipboardList, MessageSquareText, Send } from 'lucide-re
 import { useState } from 'react'
 import './App.css'
 
-const asset = (path) => `/assets/${path}`
+const asset = (path) => `${import.meta.env.BASE_URL}assets/${path}`
 
 const navItems = [
   ['프로필', '#profile', 'home'],
