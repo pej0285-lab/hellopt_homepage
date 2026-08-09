@@ -108,43 +108,13 @@
 
 .hero-section {
   display: grid;
-  grid-template-columns: 290px minmax(0, 1fr);
-  gap: 58px;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
   align-items: center;
   min-height: 610px;
   padding: 86px max(24px, calc((100vw - 1160px) / 2)) 70px;
   color: white;
   background: radial-gradient(circle at 22% 48%, rgba(74, 43, 255, 0.32), transparent 25%), radial-gradient(circle at 78% 20%, rgba(82, 180, 255, 0.13), transparent 32%), #030407;
-}
-
-.hero-mark {
-  display: flex;
-  justify-content: center;
-}
-
-.ai-card {
-  display: grid;
-  place-items: center;
-  width: 220px;
-  height: 220px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: 24px;
-  background: linear-gradient(145deg, rgba(18, 102, 255, 0.34), rgba(123, 44, 255, 0.16)), rgba(255, 255, 255, 0.06);
-  box-shadow: 0 28px 80px rgba(75, 52, 255, 0.28);
-  transform: rotate(-7deg);
-}
-
-.ai-card span,
-.ai-card em {
-  color: #74e7ff;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 900;
-}
-
-.ai-card strong {
-  font-size: 44px;
-  line-height: 1;
 }
 
 .hero-kicker,
@@ -902,8 +872,8 @@
 }
 
 .hero-section {
-  grid-template-columns: minmax(0, 1fr) 440px;
-  gap: 70px;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
   min-height: 640px;
   padding-top: 98px;
   color: #f8fff8;
@@ -912,106 +882,6 @@
     radial-gradient(circle at 12% 20%, rgba(57, 150, 105, 0.28), transparent 28%),
     radial-gradient(circle at 82% 40%, rgba(42, 164, 157, 0.2), transparent 32%),
     linear-gradient(135deg, #09282f 0%, #08252d 48%, #0d3534 100%);
-}
-
-.hero-mark {
-  order: 2;
-}
-
-.ai-card {
-  overflow: hidden;
-  place-items: stretch;
-  width: min(100%, 430px);
-  height: auto;
-  border: 1px solid rgba(216, 251, 114, 0.18);
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.06);
-  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.24);
-  transform: none;
-}
-
-.ai-card-media {
-  position: relative;
-  min-height: 270px;
-  background: linear-gradient(135deg, rgba(140, 230, 221, 0.2), rgba(216, 251, 114, 0.08));
-}
-
-.ai-card-media img {
-  position: absolute;
-  right: 18px;
-  bottom: 0;
-  width: 235px;
-  height: 255px;
-  object-fit: cover;
-  object-position: top;
-  border-radius: 20px 20px 0 0;
-  filter: saturate(0.9);
-}
-
-.ai-card-media::before,
-.ai-card-media::after {
-  position: absolute;
-  left: 24px;
-  content: '';
-}
-
-.ai-card-media::before {
-  top: 28px;
-  width: 118px;
-  height: 118px;
-  border: 1px solid rgba(216, 251, 114, 0.28);
-  border-radius: 22px;
-  background: rgba(6, 37, 43, 0.46);
-}
-
-.ai-card-media::after {
-  top: 66px;
-  width: 78px;
-  height: 14px;
-  border-radius: 999px;
-  background: var(--lime);
-  box-shadow: 0 28px 0 rgba(140, 230, 221, 0.66), 0 56px 0 rgba(255, 255, 255, 0.44);
-}
-
-.ai-card-media span {
-  position: absolute;
-  left: 24px;
-  bottom: 22px;
-  padding: 7px 12px;
-  border-radius: 999px;
-  color: var(--lime);
-  background: rgba(6, 37, 43, 0.78);
-  font-size: 11px;
-  font-weight: 950;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.ai-card-caption {
-  display: grid;
-  gap: 6px;
-  padding: 20px 24px 24px;
-  background: rgba(6, 37, 43, 0.72);
-}
-
-.ai-card-caption span,
-.ai-card-caption em {
-  color: #b8d0cf;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 850;
-}
-
-.ai-card-caption span {
-  color: var(--lime);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.ai-card-caption strong {
-  color: white;
-  font-size: 24px;
-  line-height: 1.2;
 }
 
 .hero-kicker {
@@ -1204,11 +1074,6 @@
     grid-template-columns: 1fr;
   }
 
-  .hero-mark {
-    order: 2;
-    justify-content: flex-start;
-  }
-
   .stats-band,
   .course-grid,
   .lab-placeholder {
@@ -1279,36 +1144,6 @@
     gap: 32px;
     min-height: auto;
     padding-top: 54px;
-  }
-
-  .ai-card {
-    width: min(100%, 320px);
-    height: auto;
-  }
-
-  .ai-card-media {
-    min-height: 220px;
-  }
-
-  .ai-card-media img {
-    right: 12px;
-    width: 190px;
-    height: 218px;
-  }
-
-  .ai-card-media::before {
-    left: 18px;
-    width: 92px;
-    height: 92px;
-  }
-
-  .ai-card-media::after {
-    left: 18px;
-    width: 62px;
-  }
-
-  .ai-card strong {
-    font-size: 22px;
   }
 
   .stats-band,

@@ -169,19 +169,6 @@ function App() {
       <main id="top">
         {activeView === 'home' ? <>
           <section className="hero-section">
-          <div className="hero-mark" aria-hidden="true">
-            <div className="ai-card">
-              <div className="ai-card-media">
-                <img src={asset('brand/portrait.png')} alt="" />
-                <span>Live Workshop</span>
-              </div>
-              <div className="ai-card-caption">
-                <span>Microsoft AI Training</span>
-                <strong>Copilot 실무 전환</strong>
-                <em>MCT guided learning</em>
-              </div>
-            </div>
-          </div>
           <div className="hero-copy">
             <p className="hero-kicker">Microsoft Certified Trainer · HelloPT</p>
             <h1>AI는 도구가 아닙니다. <span>새로운 업무 파트너입니다.</span></h1>
