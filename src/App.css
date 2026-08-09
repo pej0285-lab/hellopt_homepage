@@ -500,11 +500,23 @@
 .history-year-marker {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  width: 100%;
   min-height: 0;
   padding: 12px 18px 10px;
+  border: 0;
   border-bottom: 1px solid rgba(15, 23, 42, 0.07);
   color: #2d6df6;
   background: #fbfdff;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.history-year-marker span {
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 700;
 }
 
 .history-year-marker strong {

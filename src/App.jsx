@@ -42,7 +42,7 @@ const history = [
   ['2025', '오뚜기', '생성형 AI를 활용한 데이터 리터러시 과정'],
   ['2025', '관세청', '엑셀 데이터 분석 및 생성형 AI 활용 과정'],
   ['2025', 'FNF', 'AI 활용 기초 과정'],
-  ['2025', '서울시립대학교 국제도시과학대학원 국제협력사업', '오피스 활용 과정'],
+  ['2025', '서울시립대학교', '국제도시과학대학원 국제협력사업 오피스활용 과정'],
   ['2025', '건강보험공단', '데이터 분석 처리 능력 향상 및 AI 활용 과정'],
   ['2024', '건강보험공단', '데이터 분석 처리 능력 향상 및 AI 활용 과정'],
   ['2024', '광동제약', '엑셀을 활용한 데이터 분석 과정'],
@@ -140,6 +140,7 @@ const profileSectionIds = ['bio', 'fields', 'history', 'certifications', 'books'
 
 function App() {
   const [openSections, setOpenSections] = useState(profileSectionIds.filter((section) => section !== 'books'))
+  const [openHistoryYears, setOpenHistoryYears] = useState(['2026'])
   const [activeView, setActiveView] = useState(() => window.location.hash === '#labs' ? 'labs' : 'home')
 
   const isOpen = (id) => openSections.includes(id)
@@ -148,6 +149,14 @@ function App() {
       current.includes(id)
         ? current.filter((section) => section !== id)
         : [...current, id],
+    )
+  }
+  const isHistoryYearOpen = (year) => openHistoryYears.includes(year)
+  const toggleHistoryYear = (year) => {
+    setOpenHistoryYears((current) =>
+      current.includes(year)
+        ? current.filter((openYear) => openYear !== year)
+        : [...current, year],
     )
   }
   const saveProfilePdf = () => {
@@ -261,17 +270,20 @@ function App() {
               <div className="history-timeline">
                 {groupedHistory.map(({ year, items }) => (
                   <section className="history-year-group" key={year}>
-                    <div className="history-year-marker">
+                    <button type="button" className="history-year-marker" aria-expanded={isHistoryYearOpen(year)} aria-controls={`history-${year}-content`} onClick={() => toggleHistoryYear(year)}>
                       <strong>{year}</strong>
-                    </div>
-                    <div className="history-course-list">
-                      {items.map(([company, title]) => (
-                        <article className="history-course-card" key={`${year}-${company}-${title}`}>
-                          <strong>{company}</strong>
-                          <p>{title}</p>
-                        </article>
-                      ))}
-                    </div>
+                      <span aria-hidden="true">{isHistoryYearOpen(year) ? '▴' : '▾'}</span>
+                    </button>
+                    {isHistoryYearOpen(year) && (
+                      <div className="history-course-list" id={`history-${year}-content`}>
+                        {items.map(([company, title]) => (
+                          <article className="history-course-card" key={`${year}-${company}-${title}`}>
+                            <strong>{company}</strong>
+                            <p>{title}</p>
+                          </article>
+                        ))}
+                      </div>
+                    )}
                   </section>
                 ))}
               </div>
