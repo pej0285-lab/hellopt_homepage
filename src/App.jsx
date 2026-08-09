@@ -69,6 +69,7 @@ const groupedHistory = history.reduce((groups, [year, company, title]) => {
 }, [])
 
 const certifications = [
+  ['Microsoft Tech TITAN', 'Frontier Transformation Engineer', 'brand/tech-titan-badge.svg', 'https://techcommunity.microsoft.com/'],
   ['MCT', 'Microsoft Certified Trainer 2026', 'brand/mct-badge.png', 'https://learn.microsoft.com/credentials/'],
   ['AB-730', 'AI 비즈니스 전문가', 'brand/ab-731.png', 'https://learn.microsoft.com/ko-kr/credentials/certifications/ai-business-professional/?WT.mc_id=certposter_poster-wwl&practice-assessment-type=certification'],
   ['AB-731', '인공지능 혁신 리더', 'brand/ab-730.png', 'https://learn.microsoft.com/ko-kr/credentials/certifications/ai-transformation-leader/?WT.mc_id=certposter_poster-wwl&practice-assessment-type=certification'],
