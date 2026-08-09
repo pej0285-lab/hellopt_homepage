@@ -823,7 +823,7 @@
 .contact-card {
   display: grid;
   justify-items: start;
-  max-width: 920px;
+  max-width: 1160px;
   margin: 0 auto;
   padding: 52px 56px;
   border: 1px solid rgba(15, 23, 42, 0.12);
@@ -1092,6 +1092,15 @@
 .contact-section,
 .courses-section {
   background: #f8faf5;
+}
+
+.courses-section .section-head h2,
+.courses-section .eyebrow {
+  color: var(--navy);
+}
+
+.courses-section .section-head p {
+  color: #3b4d4a;
 }
 
 .accordion-panel,
