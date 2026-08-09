@@ -70,7 +70,7 @@ const groupedHistory = history.reduce((groups, [year, company, title]) => {
 
 const certifications = [
   ['Microsoft Tech TITAN', 'Frontier Transformation Engineer', 'brand/tech-titan-badge.svg', 'https://techcommunity.microsoft.com/'],
-  ['MCT', 'Microsoft Certified Trainer 2026', 'brand/mct-badge.png', 'https://learn.microsoft.com/credentials/'],
+  ['MCT', 'Microsoft Certified Trainer 2026', 'brand/mct-badge.png', 'https://learn.microsoft.com/ko-kr/users/32322147/transcript/dwo15h26y6y1m3y'],
   ['AB-730', 'AI 비즈니스 전문가', 'brand/ab-731.png', 'https://learn.microsoft.com/ko-kr/credentials/certifications/ai-business-professional/?WT.mc_id=certposter_poster-wwl&practice-assessment-type=certification'],
   ['AB-731', '인공지능 혁신 리더', 'brand/ab-730.png', 'https://learn.microsoft.com/ko-kr/credentials/certifications/ai-transformation-leader/?WT.mc_id=certposter_poster-wwl&practice-assessment-type=certification'],
   ['AI-102', 'Azure AI 엔지니어 준회원', 'brand/ai-102.png', 'https://learn.microsoft.com/ko-kr/credentials/certifications/azure-ai-apps-and-agents-developer-associate/?practice-assessment-type=certification'],
