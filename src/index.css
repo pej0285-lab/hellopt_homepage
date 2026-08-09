@@ -1,14 +1,15 @@
 @import url('https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/static/woff2/SUIT.css');
 
 :root {
-  --page: #f5f8ff;
-  --ink: #101828;
-  --muted: #667085;
-  --navy: #071f50;
-  --blue: #1266ff;
-  --violet: #7b2cff;
-  --electric: #5fe1ff;
-  --mint: #27d4b0;
+  --page: #f4f6f2;
+  --ink: #071f1f;
+  --muted: #667170;
+  --navy: #06252b;
+  --deep: #08262d;
+  --teal: #0d6f6d;
+  --green: #097c3f;
+  --lime: #d8fb72;
+  --aqua: #8ce6dd;
   --heading: 'SUIT', 'Noto Sans KR', sans-serif;
   --body: 'SUIT', 'Noto Sans KR', sans-serif;
   color: var(--ink);

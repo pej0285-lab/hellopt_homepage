@@ -212,9 +212,15 @@ function App() {
           <section className="hero-section">
           <div className="hero-mark" aria-hidden="true">
             <div className="ai-card">
-              <span>AI</span>
-              <strong>Copilot</strong>
-              <em>Agent</em>
+              <div className="ai-card-media">
+                <img src={asset('brand/portrait.png')} alt="" />
+                <span>Live Workshop</span>
+              </div>
+              <div className="ai-card-caption">
+                <span>Microsoft AI Training</span>
+                <strong>Copilot 실무 전환</strong>
+                <em>MCT guided learning</em>
+              </div>
             </div>
           </div>
           <div className="hero-copy">
