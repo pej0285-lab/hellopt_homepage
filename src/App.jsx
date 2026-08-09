@@ -208,11 +208,6 @@ function App() {
 
           <section id="profile" className="section profile-section">
           <SectionHead eyebrow="Profile" title="박은진 강사 프로필" text="" />
-          <div className="profile-controls" aria-label="프로필 전체 제어">
-            <button type="button" onClick={() => setOpenSections(profileSectionIds)}>전체 펼치기</button>
-            <button type="button" onClick={() => setOpenSections([])}>전체 접기</button>
-          </div>
-
           <div className="accordion-stack">
             <AccordionPanel id="bio" title="약력" open={isOpen('bio')} onToggle={toggleSection}>
               <div className="bio-layout">
@@ -229,6 +224,7 @@ function App() {
                 <div className="bio-side">
                   <div className="bio-badges" aria-label="강사 인증 및 브랜드">
                     <img src={asset('brand/mct-badge.png')} alt="MCT 뱃지" />
+                    <img src={asset('brand/tech-titan-badge.svg')} alt="Microsoft Tech TITAN Frontier Transformation Engineer 뱃지" />
                   </div>
                   <div className="profile-actions">
                     <button className="outline-button" type="button" onClick={saveProfilePdf}>프로필 PDF 저장</button>

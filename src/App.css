@@ -304,27 +304,9 @@
   background: #f2f6ff;
 }
 
-.profile-controls {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 18px;
-}
-
-.profile-controls button,
 .accordion-trigger {
   font: inherit;
   cursor: pointer;
-}
-
-.profile-controls button {
-  min-height: 30px;
-  padding: 0 10px;
-  border: 1px solid rgba(15, 23, 42, 0.12);
-  border-radius: 999px;
-  color: var(--navy);
-  background: white;
-  font-size: 12px;
-  font-weight: 900;
 }
 
 .accordion-stack {
@@ -915,8 +897,7 @@
   background: rgba(255, 255, 255, 0.04);
 }
 
-.outline-button,
-.profile-controls button {
+.outline-button {
   border-color: rgba(9, 124, 63, 0.18);
 }
 
@@ -1407,7 +1388,6 @@
 .hero-kicker,
 .chip-row span,
 .strip-track span,
-.profile-controls button,
 .field-grid span,
 .course-card span,
 .lab-grid span,
