@@ -796,9 +796,11 @@
 }
 
 .contact-card {
-  max-width: 1080px;
+  display: grid;
+  justify-items: start;
+  max-width: 920px;
   margin: 0 auto;
-  padding: 42px 46px 36px;
+  padding: 52px 56px;
   border: 1px solid rgba(15, 23, 42, 0.12);
   border-radius: 14px;
   background: white;
@@ -807,7 +809,7 @@
 
 .contact-head {
   position: relative;
-  margin-bottom: 30px;
+  margin-bottom: 28px;
   padding-left: 18px;
 }
 
@@ -822,141 +824,21 @@
   content: '';
 }
 
-.inquiry-form {
-  display: grid;
-  gap: 32px;
-}
-
-.inquiry-form fieldset {
-  display: grid;
-  gap: 20px;
-  margin: 0;
-  padding: 0;
-  border: 0;
-}
-
-.inquiry-form legend {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  width: 100%;
-  margin-bottom: 12px;
-  color: #3345f5;
-  font-size: 17px;
-  font-weight: 950;
-}
-
-.inquiry-form legend::after {
-  flex: 1;
-  height: 1px;
-  margin-left: 18px;
-  background: linear-gradient(90deg, rgba(51, 69, 245, 0.22), rgba(15, 23, 42, 0.04));
-  content: '';
-}
-
-.legend-icon {
-  display: inline-grid;
-  place-items: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 10px;
-  color: #3345f5;
-  background: #eef2ff;
-}
-
-.form-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 20px 32px;
-}
-
-.inquiry-form label {
-  display: grid;
-  gap: 9px;
-  color: var(--navy);
-  font-size: 13px;
-  font-weight: 900;
-}
-
-.label-text {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  padding-left: 2px;
-}
-
-.inquiry-form b {
-  color: #f04c78;
-}
-
-.inquiry-form input,
-.inquiry-form select,
-.inquiry-form textarea {
-  width: 100%;
-  min-height: 52px;
-  padding: 0 16px;
-  border: 1px solid #d8e1f0;
-  border-radius: 12px;
-  color: var(--navy);
-  background: #ffffff;
-  box-shadow: 0 1px 0 rgba(15, 23, 42, 0.03), inset 0 0 0 1px rgba(255, 255, 255, 0.72);
-  font: inherit;
-  font-weight: 700;
-  outline: 0;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-}
-
-.inquiry-form input:focus,
-.inquiry-form select:focus,
-.inquiry-form textarea:focus {
-  border-color: rgba(51, 69, 245, 0.62);
-  background: white;
-  box-shadow: 0 0 0 4px rgba(51, 69, 245, 0.1);
-}
-
-.inquiry-form textarea {
-  min-height: 112px;
-  padding-block: 16px;
-  resize: vertical;
-}
-
-.inquiry-form input::placeholder,
-.inquiry-form textarea::placeholder {
-  color: rgba(87, 99, 121, 0.58);
-}
-
-.full-field {
-  grid-column: 1 / -1;
-}
-
-.submit-area {
-  display: grid;
-  gap: 4px;
-}
-
-.form-submit {
+.mail-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  min-height: 62px;
+  min-height: 52px;
+  padding: 0 24px;
   border: 0;
-  border-radius: 12px;
+  border-radius: 999px;
   color: white;
   background: linear-gradient(90deg, #3345f5 0%, #8b3ff0 100%);
   box-shadow: 0 12px 24px rgba(51, 69, 245, 0.24);
-  font: inherit;
-  font-size: 17px;
+  font-size: 15px;
   font-weight: 950;
+  text-decoration: none;
   cursor: pointer;
-}
-
-.form-note {
-  margin: 0;
-  color: var(--muted);
-  font-size: 11px;
-  font-weight: 700;
-  text-align: center;
 }
 
 .site-footer {
@@ -996,7 +878,7 @@
 
 .header-cta,
 .primary-button,
-.form-submit {
+.mail-button {
   color: var(--navy) !important;
   background: var(--lime);
   box-shadow: 0 16px 34px rgba(216, 251, 114, 0.18);
@@ -1274,32 +1156,6 @@
   background: linear-gradient(180deg, var(--green), var(--lime));
 }
 
-.inquiry-form legend {
-  color: var(--green);
-}
-
-.inquiry-form legend::after {
-  background: linear-gradient(90deg, rgba(9, 124, 63, 0.24), rgba(6, 37, 43, 0.04));
-}
-
-.legend-icon {
-  color: var(--green);
-  background: #eaf7df;
-}
-
-.inquiry-form input,
-.inquiry-form select,
-.inquiry-form textarea {
-  border-color: #d8e4dc;
-}
-
-.inquiry-form input:focus,
-.inquiry-form select:focus,
-.inquiry-form textarea:focus {
-  border-color: rgba(9, 124, 63, 0.62);
-  box-shadow: 0 0 0 4px rgba(9, 124, 63, 0.1);
-}
-
 .site-footer {
   background: #08262d;
 }
@@ -1476,15 +1332,6 @@
 
   .contact-card {
     padding: 28px 18px 24px;
-  }
-
-  .form-grid {
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
-
-  .form-submit {
-    min-height: 54px;
   }
 
   .history-year-group {

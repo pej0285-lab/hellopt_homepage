@@ -1,4 +1,3 @@
-import { BookOpenCheck, ClipboardList, MessageSquareText, Send } from 'lucide-react'
 import { useState } from 'react'
 import './App.css'
 
@@ -167,31 +166,6 @@ function App() {
     window.history.replaceState(null, '', '#labs')
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
-  const sendInquiryMail = (event) => {
-    event.preventDefault()
-    const data = Object.fromEntries(new FormData(event.currentTarget))
-    const value = (key) => data[key]?.trim() || '미입력'
-    const subject = `[HelloPT 강의 문의] ${value('회사·기관명')} / ${value('담당자 성함')}`
-    const body = [
-      '[기본 정보]',
-      `담당자 성함: ${value('담당자 성함')}`,
-      `회사·기관명: ${value('회사·기관명')}`,
-      `이메일: ${value('이메일')}`,
-      `연락처: ${value('연락처')}`,
-      '',
-      '[교육 조건]',
-      `교육 주제: ${value('교육 주제')}`,
-      `희망 일정: ${value('희망 일정')}`,
-      `교육 대상·인원: ${value('교육 대상·인원')}`,
-      `진행 방식: ${value('진행 방식')}`,
-      '',
-      '[상세 요청]',
-      value('문의 내용'),
-    ].join('\n')
-
-    window.location.href = `mailto:jin1082@naver.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
-  }
-
   return (
     <div className="site-shell">
       <header className="site-header">
@@ -340,40 +314,10 @@ function App() {
             <div className="contact-head">
               <p className="eyebrow">Contact</p>
               <h2>강의 문의</h2>
-              <p>교육 목적과 운영 조건을 알려주시면, 맞춤형 커리큘럼과 일정으로 빠르게 안내드리겠습니다.</p>
+              <p>기업 맞춤형 AI·데이터·업무혁신 교육을 설계합니다. 사내 교육, 워크숍, 특강, 컨퍼런스 및 협업 문의를 기다립니다.</p>
+              <p>For customized corporate training, workshops, keynotes, conferences, and collaborations.</p>
             </div>
-
-            <form className="inquiry-form" onSubmit={sendInquiryMail}>
-              <fieldset>
-                <legend><span className="legend-icon"><ClipboardList size={18} aria-hidden="true" /></span><span>기본 정보</span></legend>
-                <div className="form-grid">
-                  <label><span className="label-text">담당자 성함 <b>*</b></span><input name="담당자 성함" type="text" placeholder="예: 홍길동" required /></label>
-                  <label><span className="label-text">회사·기관명</span><input name="회사·기관명" type="text" placeholder="예: (주)데이터랩" /></label>
-                  <label><span className="label-text">이메일 <b>*</b></span><input name="이메일" type="email" placeholder="예: name@company.com" required /></label>
-                  <label><span className="label-text">연락처</span><input name="연락처" type="tel" placeholder="예: 010-1234-5678" /></label>
-                </div>
-              </fieldset>
-
-              <fieldset>
-                <legend><span className="legend-icon"><BookOpenCheck size={18} aria-hidden="true" /></span><span>교육 조건</span></legend>
-                <div className="form-grid">
-                  <label><span className="label-text">교육 주제 <b>*</b></span><input name="교육 주제" type="text" placeholder="예: 생성형 AI 업무 활용, Copilot Studio Agent 제작" required /></label>
-                  <label><span className="label-text">희망 일정</span><input name="희망 일정" type="text" placeholder="예: 10월 중 1일, 1~3개월 이내, 협의 가능" /></label>
-                  <label><span className="label-text">교육 대상·인원</span><input name="교육 대상·인원" type="text" placeholder="예: 신입사원 30명, 실무자 20명 내외" /></label>
-                  <label><span className="label-text">진행 방식</span><input name="진행 방식" type="text" placeholder="예: 오프라인, 온라인, 온·오프라인 혼합" /></label>
-                </div>
-              </fieldset>
-
-              <fieldset>
-                <legend><span className="legend-icon"><MessageSquareText size={18} aria-hidden="true" /></span><span>상세 요청</span></legend>
-                <label className="full-field"><span className="label-text">문의 내용 <b>*</b></span><textarea name="문의 내용" rows="5" placeholder="예: 생성형 AI 업무 활용 교육 / 신입사원 30명 / 10월 중 1일 / 오프라인" required /></label>
-              </fieldset>
-
-              <div className="submit-area">
-                <button className="form-submit" type="submit">문의 보내기 <Send size={18} aria-hidden="true" /></button>
-                <p className="form-note">영업일 기준 1일 이내 회신드립니다.</p>
-              </div>
-            </form>
+            <a className="mail-button" href="mailto:jin1082@naver.com?subject=HelloPT%20%EA%B0%95%EC%9D%98%20%EB%B0%8F%20%ED%98%91%EC%97%85%20%EB%AC%B8%EC%9D%98">이메일 보내기</a>
           </div>
           </section>
         </> : (
