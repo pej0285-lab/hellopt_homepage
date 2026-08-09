@@ -1355,3 +1355,80 @@
     flex-direction: column;
   }
 }
+
+/* Softer typography for the header and content headings. */
+.site-header nav {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.section-head h2,
+.contact-section h2 {
+  font-size: clamp(30px, 3.4vw, 44px);
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.eyebrow,
+.hero-kicker,
+.chip-row span,
+.strip-track span,
+.profile-controls button,
+.field-grid span,
+.course-card span,
+.lab-grid span,
+.history-year-marker strong,
+.history-course-card strong,
+.cert-card span,
+.cert-card strong,
+.book-list strong,
+.book-list span {
+  font-weight: 620;
+}
+
+.accordion-trigger span {
+  font-size: 18px;
+  font-weight: 680;
+}
+
+.bio-copy h3 {
+  font-size: 25px;
+  font-weight: 680;
+}
+
+.field-grid strong,
+.course-card h3,
+.lab-grid h3,
+.lab-placeholder h3 {
+  font-weight: 680;
+  letter-spacing: 0;
+}
+
+.course-card h3,
+.lab-grid h3 {
+  font-size: 19px;
+}
+
+.history-year-marker strong,
+.history-course-card strong,
+.cert-card strong,
+.book-list strong {
+  color: #183333;
+}
+
+@media (max-width: 720px) {
+  .site-header nav {
+    font-size: 12px;
+    font-weight: 580;
+  }
+
+  .section-head h2,
+  .contact-section h2 {
+    font-size: 28px;
+  }
+
+  .accordion-trigger span {
+    font-size: 17px;
+  }
+}
