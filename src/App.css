@@ -24,12 +24,12 @@
   align-items: center;
   width: fit-content;
   padding: 4px 0;
-  background: white;
+  background: transparent;
 }
 
 .brand img {
   display: block;
-  width: 128px;
+  width: 142px;
   height: auto;
 }
 
@@ -1347,7 +1347,7 @@
   }
 
   .brand img {
-    width: 108px;
+    width: 138px;
   }
 
   .site-header nav {

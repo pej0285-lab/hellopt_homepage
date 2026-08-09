@@ -196,7 +196,7 @@ function App() {
     <div className="site-shell">
       <header className="site-header">
         <a className="brand" href="#top" aria-label="HelloPT 홈으로 이동" onClick={openHomeSection('#top')}>
-          <img src={asset('brand/hellopt-logo.png')} alt="HelloPT" />
+          <img src={asset('brand/hellopt-logo-white.png')} alt="HelloPT" />
         </a>
         <nav aria-label="주요 메뉴">
           {navItems.map(([label, href, view]) => <a key={href} href={href} onClick={view === 'labs' ? openLabsView : openHomeSection(href)}>{label}</a>)}
