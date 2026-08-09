@@ -9,7 +9,7 @@
   top: 0;
   z-index: 50;
   display: grid;
-  grid-template-columns: 190px 1fr auto auto;
+  grid-template-columns: 190px 1fr auto;
   align-items: center;
   gap: 22px;
   min-height: 64px;
@@ -49,13 +49,22 @@
 .header-proof {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 }
 
 .header-proof img {
-  width: 41px;
-  height: 41px;
+  width: 42px;
+  height: 42px;
   object-fit: contain;
+}
+
+.header-proof img:first-child {
+  border-radius: 50%;
+}
+
+.header-proof img:nth-child(2) {
+  width: 46px;
+  height: 46px;
 }
 
 .header-cta,
@@ -1306,7 +1315,18 @@
   }
 
   .header-proof {
-    display: none;
+    display: flex;
+    justify-self: end;
+  }
+
+  .header-proof img {
+    width: 36px;
+    height: 36px;
+  }
+
+  .header-proof img:nth-child(2) {
+    width: 40px;
+    height: 40px;
   }
 
   .hero-section,
@@ -1344,6 +1364,20 @@
   .site-header {
     grid-template-columns: 1fr auto;
     padding: 10px 16px;
+  }
+
+  .header-proof {
+    grid-column: 2;
+  }
+
+  .header-proof img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .header-proof img:nth-child(2) {
+    width: 36px;
+    height: 36px;
   }
 
   .brand img {

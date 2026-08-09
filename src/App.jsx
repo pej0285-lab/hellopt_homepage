@@ -202,9 +202,9 @@ function App() {
           {navItems.map(([label, href, view]) => <a key={href} href={href} onClick={view === 'labs' ? openLabsView : openHomeSection(href)}>{label}</a>)}
         </nav>
         <div className="header-proof" aria-label="보유 인증">
-          <img src={asset('brand/mct-badge.png')} alt="MCT 뱃지" />
+          <img src={asset('brand/mct-badge-circle.png')} alt="MCT 뱃지" />
+          <img src={asset('brand/tech-titan-badge.svg')} alt="Microsoft Tech Titan 뱃지" />
         </div>
-        <a className="header-cta" href="#contact" onClick={openHomeSection('#contact')}>강의문의</a>
       </header>
 
       <main id="top">

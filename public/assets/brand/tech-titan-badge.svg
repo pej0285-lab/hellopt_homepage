@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" role="img" aria-labelledby="title desc">
+  <title id="title">Microsoft Tech Titan Badge</title>
+  <desc id="desc">Small teal Microsoft Tech Titan badge for the site header.</desc>
+  <defs>
+    <linearGradient id="badge" x1="35" y1="18" x2="145" y2="170" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#12c7df"/>
+      <stop offset="0.55" stop-color="#0275a8"/>
+      <stop offset="1" stop-color="#0a425b"/>
+    </linearGradient>
+    <linearGradient id="ribbon" x1="16" y1="116" x2="164" y2="142" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#24bdd0"/>
+      <stop offset="0.55" stop-color="#d7ffff"/>
+      <stop offset="1" stop-color="#35d3df"/>
+    </linearGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#001c29" flood-opacity="0.42"/>
+    </filter>
+  </defs>
+  <path d="M90 5 165 32v96l-75 47-75-47V32Z" fill="url(#badge)" filter="url(#soft)"/>
+  <path d="M90 10 158 35v88l-68 43-68-43V35Z" fill="none" stroke="#8ff2ff" stroke-width="4"/>
+  <g transform="translate(64 30) scale(.72)">
+    <rect width="18" height="18" fill="#f25022"/>
+    <rect x="21" width="18" height="18" fill="#7fba00"/>
+    <rect y="21" width="18" height="18" fill="#00a4ef"/>
+    <rect x="21" y="21" width="18" height="18" fill="#ffb900"/>
+  </g>
+  <text x="94" y="51" text-anchor="middle" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700">Microsoft</text>
+  <text x="90" y="78" text-anchor="middle" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="800" letter-spacing=".6">FRONTIER</text>
+  <text x="90" y="99" text-anchor="middle" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="800" letter-spacing=".6">ENGINEER</text>
+  <text x="90" y="122" text-anchor="middle" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700">Tech</text>
+  <text x="90" y="147" text-anchor="middle" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="900" letter-spacing="2">TITAN</text>
+  <path d="M12 118 90 143l78-25v22l-78 28-78-28Z" fill="url(#ribbon)" opacity=".92"/>
+</svg>
