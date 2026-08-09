@@ -115,7 +115,7 @@ const labMaterials = [
 const profileSectionIds = ['bio', 'fields', 'history', 'certifications', 'books']
 
 function App() {
-  const [openSections, setOpenSections] = useState(profileSectionIds.filter((section) => section !== 'books'))
+  const [openSections, setOpenSections] = useState(profileSectionIds)
   const [openHistoryYears, setOpenHistoryYears] = useState(['2026'])
   const [activeView, setActiveView] = useState(() => window.location.hash === '#labs' ? 'labs' : 'home')
 
