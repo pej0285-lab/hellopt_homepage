@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import './App.css'
 
 const asset = (path) => `${import.meta.env.BASE_URL}assets/${path}`
@@ -69,7 +69,6 @@ const groupedHistory = history.reduce((groups, [year, company, title]) => {
 }, [])
 
 const certifications = [
-  ['Microsoft Tech TITAN', 'Frontier Transformation Engineer', 'brand/tech-titan-badge.svg', 'https://techcommunity.microsoft.com/'],
   ['MCT', 'Microsoft Certified Trainer 2026', 'brand/mct-badge.png', 'https://learn.microsoft.com/ko-kr/users/32322147/transcript/dwo15h26y6y1m3y'],
   ['AB-730', 'AI 비즈니스 전문가', 'brand/ab-731.png', 'https://learn.microsoft.com/ko-kr/credentials/certifications/ai-business-professional/?WT.mc_id=certposter_poster-wwl&practice-assessment-type=certification'],
   ['AB-731', '인공지능 혁신 리더', 'brand/ab-730.png', 'https://learn.microsoft.com/ko-kr/credentials/certifications/ai-transformation-leader/?WT.mc_id=certposter_poster-wwl&practice-assessment-type=certification'],
@@ -118,6 +117,16 @@ function App() {
   const [openSections, setOpenSections] = useState(profileSectionIds)
   const [openHistoryYears, setOpenHistoryYears] = useState(['2026'])
   const [activeView, setActiveView] = useState(() => window.location.hash === '#labs' ? 'labs' : 'home')
+  const [contactFormOpen, setContactFormOpen] = useState(false)
+  const [contactForm, setContactForm] = useState({
+    name: '',
+    organization: '',
+    email: '',
+    phone: '',
+    inquiryType: '기업/기관 교육 문의',
+    message: '',
+  })
+  const contactFormRef = useRef(null)
 
   const isOpen = (id) => openSections.includes(id)
   const toggleSection = (id) => {
@@ -151,6 +160,29 @@ function App() {
     window.history.replaceState(null, '', '#labs')
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
+  const openContactForm = () => {
+    setContactFormOpen(true)
+    window.setTimeout(() => contactFormRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 0)
+  }
+  const updateContactForm = (event) => {
+    const { name, value } = event.target
+    setContactForm((current) => ({ ...current, [name]: value }))
+  }
+  const submitContactForm = (event) => {
+    event.preventDefault()
+    const body = [
+      `성함: ${contactForm.name}`,
+      `회사/기관: ${contactForm.organization}`,
+      `이메일: ${contactForm.email}`,
+      `연락처: ${contactForm.phone}`,
+      `문의 유형: ${contactForm.inquiryType}`,
+      '',
+      '문의 내용:',
+      contactForm.message,
+    ].join('\n')
+
+    window.location.href = `mailto:jin1082@naver.com?subject=${encodeURIComponent('HelloPT 강의 의뢰')}&body=${encodeURIComponent(body)}`
+  }
   return (
     <div className="site-shell">
       <header className="site-header">
@@ -162,7 +194,6 @@ function App() {
         </nav>
         <div className="header-proof" aria-label="보유 인증">
           <img src={asset('brand/mct-badge-circle.png')} alt="MCT 뱃지" />
-          <img src={asset('brand/tech-titan-badge.svg')} alt="Microsoft Tech Titan 뱃지" />
         </div>
       </header>
 
@@ -211,11 +242,10 @@ function App() {
                 <div className="bio-side">
                   <div className="bio-badges" aria-label="강사 인증 및 브랜드">
                     <img src={asset('brand/mct-badge.png')} alt="MCT 뱃지" />
-                    <img src={asset('brand/tech-titan-badge.svg')} alt="Microsoft Tech TITAN Frontier Transformation Engineer 뱃지" />
                   </div>
                   <div className="profile-actions">
                     <button className="outline-button" type="button" onClick={saveProfilePdf}>프로필 PDF 저장</button>
-                    <a className="outline-button" href="https://www.linkedin.com/in/%EC%9D%80%EC%A7%84-%EB%B0%95-950099316/" target="_blank" rel="noreferrer">LinkedIn</a>
+                    <a className="outline-button" href="https://www.linkedin.com/in/hellopt" target="_blank" rel="noreferrer">LinkedIn</a>
                   </div>
                 </div>
               </div>
@@ -283,13 +313,76 @@ function App() {
           <section id="contact" className="section contact-section">
           <div className="contact-card">
             <div className="contact-head">
-              <p className="eyebrow">Contact</p>
-              <h2>강의 문의</h2>
-              <p>기업 맞춤형 AI·데이터·업무혁신 교육을 설계합니다. 사내 교육, 워크숍, 특강, 컨퍼런스 및 협업 문의를 기다립니다.</p>
-              <p>For customized corporate training, workshops, keynotes, conferences, and collaborations.</p>
+              <p className="eyebrow">CONTACT</p>
+              <h2>AI · 데이터 · 업무혁신을 설계합니다.</h2>
+              <p>기업 맞춤형 강의 요청 · 특강 · 컨퍼런스 및 협업 문의를 기다립니다.</p>
             </div>
-            <a className="mail-button" href="mailto:jin1082@naver.com?subject=HelloPT%20%EA%B0%95%EC%9D%98%20%EB%B0%8F%20%ED%98%91%EC%97%85%20%EB%AC%B8%EC%9D%98">이메일 보내기</a>
+            <button className="mail-button" type="button" onClick={openContactForm}>강의 의뢰</button>
           </div>
+          {contactFormOpen && (
+            <div className="contact-form-shell" ref={contactFormRef}>
+              <div className="contact-form-layout">
+                <section className="lecture-form-card" aria-labelledby="lecture-form-title">
+                  <div className="form-title-block">
+                    <h3 id="lecture-form-title">강의 문의</h3>
+                    <p>아래 폼을 작성해 주시면 이메일로 접수되어 빠르게 회신드립니다.</p>
+                  </div>
+                  <form className="lecture-form" onSubmit={submitContactForm}>
+                    <label>
+                      <span>성함 <em>*</em></span>
+                      <input name="name" type="text" value={contactForm.name} onChange={updateContactForm} required />
+                    </label>
+                    <label>
+                      <span>회사/기관</span>
+                      <input name="organization" type="text" value={contactForm.organization} onChange={updateContactForm} />
+                    </label>
+                    <label>
+                      <span>이메일 <em>*</em></span>
+                      <input name="email" type="email" value={contactForm.email} onChange={updateContactForm} required />
+                    </label>
+                    <label>
+                      <span>연락처</span>
+                      <input name="phone" type="tel" value={contactForm.phone} onChange={updateContactForm} />
+                    </label>
+                    <label className="form-wide">
+                      <span>문의 유형</span>
+                      <select name="inquiryType" value={contactForm.inquiryType} onChange={updateContactForm}>
+                        <option>기업/기관 교육 문의</option>
+                        <option>특강 문의</option>
+                        <option>컨퍼런스/세미나 문의</option>
+                        <option>협업 문의</option>
+                      </select>
+                    </label>
+                    <label className="form-wide">
+                      <span>문의 내용 <em>*</em></span>
+                      <textarea name="message" rows="6" value={contactForm.message} onChange={updateContactForm} placeholder="교육 대상·인원·희망 일정 등을 함께 적어 주시면 더 빠르게 안내드릴 수 있습니다." required />
+                    </label>
+                    <button className="form-submit" type="submit">문의 보내기 →</button>
+                  </form>
+                </section>
+                <section className="contact-info-panel" aria-label="직접 연락처">
+                  <h3>Contact</h3>
+                  <div className="contact-info-grid">
+                    <a href="tel:01047070285">
+                      <span aria-hidden="true">☎</span>
+                      <small>PHONE</small>
+                      <strong>010-4707-0285</strong>
+                    </a>
+                    <a href="mailto:jin1082@naver.com">
+                      <span aria-hidden="true">✉</span>
+                      <small>EMAIL</small>
+                      <strong>jin1082@naver.com</strong>
+                    </a>
+                    <a href="https://www.linkedin.com/in/hellopt" target="_blank" rel="noreferrer">
+                      <span aria-hidden="true">in</span>
+                      <small>LINKEDIN</small>
+                      <strong>www.linkedin.com/in/hellopt</strong>
+                    </a>
+                  </div>
+                </section>
+              </div>
+            </div>
+          )}
           </section>
         </> : (
           <section id="labs" className="section lab-section lab-page-section">
@@ -309,7 +402,15 @@ function App() {
         )}
       </main>
 
-      <footer className="site-footer"><span>HelloPT. Hello. People & Technology.</span><span>박은진 MCT · jin1082@naver.com</span></footer>
+      <footer className="site-footer">
+        <div className="footer-inner">
+          <a className="footer-brand" href="#top" aria-label="HelloPT 홈으로 이동" onClick={openHomeSection('#top')}>
+            <img src={asset('brand/hellopt-logo-white.png')} alt="HelloPT" />
+          </a>
+          <a className="footer-site" href="https://www.hellopt.co.kr" target="_blank" rel="noreferrer">www.hellopt.co.kr</a>
+        </div>
+        <p>Copyright © 2026 HelloPT All rights reserved</p>
+      </footer>
     </div>
   )
 }
