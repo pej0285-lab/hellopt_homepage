@@ -187,7 +187,7 @@ function App() {
     <div className="site-shell">
       <header className="site-header">
         <a className="brand" href="#top" aria-label="HelloPT 홈으로 이동" onClick={openHomeSection('#top')}>
-          <img src={asset('brand/hellopt-logo-white.png')} alt="HelloPT" />
+          <img src={asset('brand/hellopt-logo-dark.svg')} alt="HelloPT" />
         </a>
         <nav aria-label="주요 메뉴">
           {navItems.map(([label, href, view]) => <a key={href} href={href} onClick={view === 'labs' ? openLabsView : openHomeSection(href)}>{label}</a>)}
@@ -405,7 +405,7 @@ function App() {
       <footer className="site-footer">
         <div className="footer-inner">
           <a className="footer-brand" href="#top" aria-label="HelloPT 홈으로 이동" onClick={openHomeSection('#top')}>
-            <img src={asset('brand/hellopt-logo-white.png')} alt="HelloPT" />
+            <img src={asset('brand/hellopt-logo-dark.svg')} alt="HelloPT" />
           </a>
           <a className="footer-site" href="https://www.hellopt.co.kr" target="_blank" rel="noreferrer">www.hellopt.co.kr</a>
         </div>

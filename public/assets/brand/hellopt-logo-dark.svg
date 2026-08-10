@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 260" role="img" aria-labelledby="title desc">
+  <title id="title">HelloPT logo</title>
+  <desc id="desc">HelloPT logo for dark backgrounds with a blue mark and white wordmark.</desc>
+  <defs>
+    <linearGradient id="markBlue" x1="32" y1="42" x2="240" y2="210" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2d8cff"/>
+      <stop offset="1" stop-color="#1262ff"/>
+    </linearGradient>
+    <linearGradient id="tagBlue" x1="336" y1="176" x2="770" y2="220" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#dcefff"/>
+      <stop offset="1" stop-color="#8fc5ff"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M64 66h112c44 0 80 34 80 78s-36 78-80 78h-56" stroke="url(#markBlue)" stroke-width="36"/>
+    <path d="M64 222V126c0-24 20-44 44-44h70" stroke="#ffffff" stroke-width="36"/>
+    <path d="M106 126h70" stroke="#ffffff" stroke-width="36"/>
+  </g>
+  <text x="332" y="152" fill="#ffffff" font-family="SUIT, Pretendard, Arial, sans-serif" font-size="98" font-weight="900" letter-spacing="-1">HelloPT</text>
+  <text x="336" y="208" fill="url(#tagBlue)" font-family="SUIT, Pretendard, Arial, sans-serif" font-size="42" font-weight="600">Hello. People &amp; Technology.</text>
+</svg>
