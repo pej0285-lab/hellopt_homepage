@@ -186,15 +186,9 @@ function App() {
   return (
     <div className="site-shell">
       <header className="site-header">
-        <a className="brand" href="#top" aria-label="HelloPT 홈으로 이동" onClick={openHomeSection('#top')}>
-          <img src={asset('brand/hellopt-logo-dark.svg')} alt="HelloPT" />
-        </a>
         <nav aria-label="주요 메뉴">
           {navItems.map(([label, href, view]) => <a key={href} href={href} onClick={view === 'labs' ? openLabsView : openHomeSection(href)}>{label}</a>)}
         </nav>
-        <div className="header-proof" aria-label="보유 인증">
-          <img src={asset('brand/mct-badge-circle.png')} alt="MCT 뱃지" />
-        </div>
       </header>
 
       <main id="top">
