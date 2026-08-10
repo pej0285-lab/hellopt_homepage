@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 import './App.css'
 
 const asset = (path) => `${import.meta.env.BASE_URL}assets/${path}`
@@ -116,8 +116,11 @@ const profileSectionIds = ['bio', 'fields', 'history', 'certifications', 'books'
 function App() {
   const [openSections, setOpenSections] = useState(profileSectionIds)
   const [openHistoryYears, setOpenHistoryYears] = useState(['2026'])
-  const [activeView, setActiveView] = useState(() => window.location.hash === '#labs' ? 'labs' : 'home')
-  const [contactFormOpen, setContactFormOpen] = useState(false)
+  const [activeView, setActiveView] = useState(() => {
+    if (window.location.hash === '#labs') return 'labs'
+    if (window.location.hash === '#inquiry') return 'contact'
+    return 'home'
+  })
   const [contactForm, setContactForm] = useState({
     name: '',
     organization: '',
@@ -126,7 +129,6 @@ function App() {
     inquiryType: '기업/기관 교육 문의',
     message: '',
   })
-  const contactFormRef = useRef(null)
 
   const isOpen = (id) => openSections.includes(id)
   const toggleSection = (id) => {
@@ -160,9 +162,11 @@ function App() {
     window.history.replaceState(null, '', '#labs')
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
-  const openContactForm = () => {
-    setContactFormOpen(true)
-    window.setTimeout(() => contactFormRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 0)
+  const openContactForm = (event) => {
+    event?.preventDefault()
+    setActiveView('contact')
+    window.history.replaceState(null, '', '#inquiry')
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }
   const updateContactForm = (event) => {
     const { name, value } = event.target
@@ -186,6 +190,9 @@ function App() {
   return (
     <div className="site-shell">
       <header className="site-header">
+        <a className="brand" href="#top" onClick={openHomeSection('#top')} aria-label="HelloPT 홈으로 이동">
+          <img src={asset('brand/hellopt-logo-original.png')} alt="HelloPT" />
+        </a>
         <nav aria-label="주요 메뉴">
           {navItems.map(([label, href, view]) => <a key={href} href={href} onClick={view === 'labs' ? openLabsView : openHomeSection(href)}>{label}</a>)}
         </nav>
@@ -199,7 +206,7 @@ function App() {
             <h1>AI는 도구가 아닙니다. <span>새로운 업무 파트너입니다.</span></h1>
             <p>기업과 기관의 업무 현장에 맞춘 Microsoft AI, Copilot Studio, Excel 데이터 분석, 프레젠테이션 실습 교육을 진행합니다.</p>
             <div className="hero-actions">
-              <a className="primary-button" href="#contact" onClick={openHomeSection('#contact')}>강의 문의하기</a>
+              <a className="primary-button" href="#inquiry" onClick={openContactForm}>강의 문의하기</a>
               <a className="ghost-button" href="#profile" onClick={openHomeSection('#profile')}>프로필 보기</a>
             </div>
             <div className="chip-row" aria-label="주요 교육 키워드">
@@ -232,14 +239,14 @@ function App() {
                     <a href="tel:01047070285">010-4707-0285</a>
                     <a href="mailto:jin1082@naver.com">jin1082@naver.com</a>
                   </div>
+                  <div className="profile-actions">
+                    <button className="outline-button" type="button" onClick={saveProfilePdf}>프로필 PDF 저장</button>
+                    <a className="outline-button" href="https://www.linkedin.com/in/hellopt" target="_blank" rel="noreferrer">LinkedIn</a>
+                  </div>
                 </div>
                 <div className="bio-side">
                   <div className="bio-badges" aria-label="강사 인증 및 브랜드">
                     <img src={asset('brand/mct-badge.png')} alt="MCT 뱃지" />
-                  </div>
-                  <div className="profile-actions">
-                    <button className="outline-button" type="button" onClick={saveProfilePdf}>프로필 PDF 저장</button>
-                    <a className="outline-button" href="https://www.linkedin.com/in/hellopt" target="_blank" rel="noreferrer">LinkedIn</a>
                   </div>
                 </div>
               </div>
@@ -313,8 +320,9 @@ function App() {
             </div>
             <button className="mail-button" type="button" onClick={openContactForm}>강의 의뢰</button>
           </div>
-          {contactFormOpen && (
-            <div className="contact-form-shell" ref={contactFormRef}>
+          </section>
+        </> : activeView === 'contact' ? (
+          <section className="contact-form-shell contact-page-section" aria-label="강의 의뢰 폼">
               <div className="contact-form-layout">
                 <section className="lecture-form-card" aria-labelledby="lecture-form-title">
                   <div className="form-title-block">
@@ -375,10 +383,8 @@ function App() {
                   </div>
                 </section>
               </div>
-            </div>
-          )}
           </section>
-        </> : (
+        ) : (
           <section id="labs" className="section lab-section lab-page-section">
             <SectionHead eyebrow="Hands-on Lab" title="핸즈온랩" text="" />
             <div className="lab-placeholder" aria-label="핸즈온랩 준비 영역">
@@ -398,12 +404,12 @@ function App() {
 
       <footer className="site-footer">
         <div className="footer-inner">
-          <a className="footer-brand" href="#top" aria-label="HelloPT 홈으로 이동" onClick={openHomeSection('#top')}>
-            <img src={asset('brand/hellopt-logo-dark.svg')} alt="HelloPT" />
+          <a className="footer-brand" href="#top" onClick={openHomeSection('#top')} aria-label="HelloPT 홈으로 이동">
+            <img src={asset('brand/hellopt-logo-original.png')} alt="HelloPT" />
           </a>
           <a className="footer-site" href="https://www.hellopt.co.kr" target="_blank" rel="noreferrer">www.hellopt.co.kr</a>
+          <p>Copyright © 2026 HelloPT All rights reserved</p>
         </div>
-        <p>Copyright © 2026 HelloPT All rights reserved</p>
       </footer>
     </div>
   )
