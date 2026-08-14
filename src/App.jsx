@@ -249,6 +249,7 @@ function App() {
                 </div>
                 <div className="bio-side">
                   <div className="bio-badges" aria-label="강사 인증 및 브랜드">
+                    <img src={asset('brand/titan-badge.png')} alt="Microsoft Frontier Transformation Engineer TITAN 뱃지" />
                     <img src={asset('brand/mct-badge.png')} alt="MCT 뱃지" />
                   </div>
                 </div>

@@ -338,8 +338,8 @@
 
 .bio-layout {
   display: grid;
-  grid-template-columns: 176px minmax(320px, 1fr) 128px;
-  gap: 28px;
+  grid-template-columns: 176px minmax(300px, 1fr) 220px;
+  gap: 30px;
   align-items: center;
   padding-top: 4px;
 }
@@ -407,11 +407,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 16px;
 }
 
 .bio-badges img {
-  width: 84px;
-  height: 84px;
+  width: 94px;
+  height: 94px;
   object-fit: contain;
 }
 
@@ -1103,7 +1104,7 @@
   }
 
   .bio-layout {
-    grid-template-columns: 176px minmax(0, 1fr) 104px;
+    grid-template-columns: 176px minmax(0, 1fr) 190px;
   }
 
   .bio-side {
@@ -1190,8 +1191,8 @@
   }
 
   .bio-badges img {
-    width: 68px;
-    height: 68px;
+    width: 76px;
+    height: 76px;
   }
 
   .book-list {
