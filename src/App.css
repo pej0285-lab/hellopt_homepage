@@ -338,44 +338,66 @@
 
 .bio-layout {
   display: grid;
-  grid-template-columns: 176px minmax(300px, 1fr) 220px;
-  gap: 30px;
-  align-items: center;
-  padding-top: 4px;
+  grid-template-columns: 172px minmax(280px, 1fr) 260px;
+  gap: 28px;
+  align-items: stretch;
+  padding: 6px 4px 2px;
 }
 
 .bio-photo {
-  width: 176px;
-  height: 176px;
+  width: 172px;
+  height: 172px;
   object-fit: cover;
   border-radius: 20px;
+  align-self: center;
 }
 
-.bio-copy span {
+.bio-copy {
+  display: grid;
+  align-content: center;
+  gap: 14px;
+  min-width: 0;
+}
+
+.bio-identity span {
   color: #2d6df6;
   font-size: 12px;
   font-weight: 950;
   line-height: 1.4;
 }
 
-.bio-copy h3 {
+.bio-identity h3 {
   margin: 6px 0 5px;
   color: var(--navy);
   font-size: 28px;
   line-height: 1.22;
 }
 
-.bio-copy p {
-  margin: 0;
-  color: var(--muted);
-  line-height: 1.55;
+.bio-roles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.bio-roles span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 0 12px;
+  border: 1px solid rgba(9, 124, 63, 0.13);
+  border-radius: 999px;
+  color: #0b5f45;
+  background: rgba(238, 247, 240, 0.82);
+  font-size: 12px;
+  font-weight: 760;
+  line-height: 1;
 }
 
 .bio-contact {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-top: 16px;
+  margin-top: 0;
 }
 
 .bio-contact a {
@@ -400,20 +422,28 @@
   justify-self: end;
   justify-items: center;
   min-width: 0;
-  padding-right: 12px;
+  padding-right: 8px;
 }
 
 .bio-badges {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
+  gap: 18px;
 }
 
 .bio-badges img {
-  width: 94px;
-  height: 94px;
   object-fit: contain;
+}
+
+.bio-badges .titan-badge {
+  width: 116px;
+  height: 116px;
+}
+
+.bio-badges .mct-badge {
+  width: 96px;
+  height: 96px;
 }
 
 .profile-actions {
@@ -422,7 +452,7 @@
   flex-wrap: wrap;
   gap: 10px;
   min-width: 0;
-  margin-top: 14px;
+  margin-top: 0;
 }
 
 .profile-actions .outline-button {
@@ -1104,11 +1134,12 @@
   }
 
   .bio-layout {
-    grid-template-columns: 176px minmax(0, 1fr) 190px;
+    grid-template-columns: 160px minmax(0, 1fr) 230px;
   }
 
   .bio-side {
     grid-column: auto;
+    justify-self: end;
     justify-items: center;
     padding-right: 0;
     margin-top: 0;
@@ -1171,7 +1202,7 @@
 
   .bio-layout {
     grid-template-columns: 1fr;
-    gap: 14px;
+    gap: 16px;
   }
 
   .bio-photo {
@@ -1183,14 +1214,19 @@
   .bio-side {
     grid-column: auto;
     justify-self: start;
-    margin-top: 4px;
+    margin-top: 0;
   }
 
   .profile-actions {
     min-width: 0;
   }
 
-  .bio-badges img {
+  .bio-badges .titan-badge {
+    width: 92px;
+    height: 92px;
+  }
+
+  .bio-badges .mct-badge {
     width: 76px;
     height: 76px;
   }

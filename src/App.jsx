@@ -235,9 +235,15 @@ function App() {
               <div className="bio-layout">
                 <img className="bio-photo" src={asset('brand/portrait.png')} alt="박은진 강사 얼굴 사진" />
                 <div className="bio-copy">
-                  <span>Hello. People & Technology.</span>
-                  <h3>박은진 강사</h3>
-                  <p>HelloPT 대표 · Microsoft Certified Trainer(2026)</p>
+                  <div className="bio-identity">
+                    <span>Hello. People & Technology.</span>
+                    <h3>박은진 강사</h3>
+                  </div>
+                  <div className="bio-roles" aria-label="주요 약력">
+                    <span>HelloPT 대표</span>
+                    <span>Microsoft Certified Trainer</span>
+                    <span>Frontier Transformation Engineer</span>
+                  </div>
                   <div className="bio-contact" aria-label="강사 연락처">
                     <a href="tel:01047070285">010-4707-0285</a>
                     <a href="mailto:jin1082@naver.com">jin1082@naver.com</a>
@@ -249,8 +255,8 @@ function App() {
                 </div>
                 <div className="bio-side">
                   <div className="bio-badges" aria-label="강사 인증 및 브랜드">
-                    <img src={asset('brand/titan-badge.png')} alt="Microsoft Frontier Transformation Engineer TITAN 뱃지" />
-                    <img src={asset('brand/mct-badge.png')} alt="MCT 뱃지" />
+                    <img className="titan-badge" src={asset('brand/titan-badge.png')} alt="Microsoft Frontier Transformation Engineer TITAN 뱃지" />
+                    <img className="mct-badge" src={asset('brand/mct-badge.png')} alt="MCT 뱃지" />
                   </div>
                 </div>
               </div>
