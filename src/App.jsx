@@ -196,6 +196,10 @@ function App() {
         <nav aria-label="주요 메뉴">
           {navItems.map(([label, href, view]) => <a key={href} href={href} onClick={view === 'labs' ? openLabsView : openHomeSection(href)}>{label}</a>)}
         </nav>
+        <div className="header-badges" aria-label="강사 인증 로고">
+          <img className="header-mct-badge" src={asset('brand/mct-badge-round.png')} alt="MCT" />
+          <img src={asset('brand/titan-badge.png')} alt="TITAN" />
+        </div>
       </header>
 
       <main id="top">
@@ -256,7 +260,7 @@ function App() {
                 <div className="bio-side">
                   <div className="bio-badges" aria-label="강사 인증 및 브랜드">
                     <img className="titan-badge" src={asset('brand/titan-badge.png')} alt="Microsoft Frontier Transformation Engineer TITAN 뱃지" />
-                    <img className="mct-badge" src={asset('brand/mct-badge.png')} alt="MCT 뱃지" />
+                    <img className="mct-badge" src={asset('brand/mct-badge-round.png')} alt="MCT 뱃지" />
                   </div>
                 </div>
               </div>
