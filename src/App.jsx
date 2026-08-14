@@ -213,6 +213,9 @@ function App() {
               {heroChips.map((chip) => <span key={chip}>{chip}</span>)}
             </div>
           </div>
+          <div className="hero-media" aria-hidden="true">
+            <img src={asset('brand/hero-hellopt-network.png')} alt="" />
+          </div>
           </section>
 
           <section className="stats-band" aria-label="핵심 신뢰 지표">
