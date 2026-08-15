@@ -67,7 +67,7 @@
   border-radius: 999px;
 }
 
-.header-badges img:last-child {
+.header-badges .header-titan-badge {
   width: 52px;
   height: 52px;
 }
@@ -1178,7 +1178,7 @@
     height: 40px;
   }
 
-  .header-badges img:last-child {
+  .header-badges .header-titan-badge {
     width: 44px;
     height: 44px;
   }

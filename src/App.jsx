@@ -197,8 +197,8 @@ function App() {
           {navItems.map(([label, href, view]) => <a key={href} href={href} onClick={view === 'labs' ? openLabsView : openHomeSection(href)}>{label}</a>)}
         </nav>
         <div className="header-badges" aria-label="강사 인증 로고">
+          <img className="header-titan-badge" src={asset('brand/titan-badge.png')} alt="TITAN" />
           <img className="header-mct-badge" src={asset('brand/mct-badge-round.png')} alt="MCT" />
-          <img src={asset('brand/titan-badge.png')} alt="TITAN" />
         </div>
       </header>
 
