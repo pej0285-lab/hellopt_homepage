@@ -231,7 +231,39 @@ const detailPages = {
 }
 
 const remainingPages = {
-  'm04-1': ['M4-1', 'Word에서 Copilot', '빈 화면 앞에서 막히지 않습니다. Copilot이 초안·재작성·요약·질문까지 함께합니다.', [bullets('초안 만들기', ['새 문서 초안을 만들고 회의록·기획서를 근거로 문서를 생성합니다.', '목차만 주고 각 절에 내용을 채웁니다.']), bullets('재작성·요약·문서 채팅', ['선택한 문단을 더 간결하게·정중하게·불릿으로 바꿉니다.', '긴 문서의 핵심과 의무·기한을 뽑고 문서에 질문합니다.']), bullets('실무 팁', ['근거 파일을 지정하고 사실·수치를 검토합니다.', '긴 문서는 절 단위로 나눠 지시합니다.'])], ['초안·재작성·요약·질문이 Word Copilot의 축입니다.', '결과는 초안이므로 사실과 수치를 검토합니다.']],
+  'm04-1': ['M4-1', 'Word에서 Copilot', '빈 화면 앞에서 막히지 않습니다. Copilot이 초안 → 재작성 → 요약 → 질문까지 함께합니다.', [
+    bullets('1. 초안 만들기 (Draft)', [
+      '프롬프트로 새 문서 초안: “신제품 출시 보도자료 초안, 3문단, 공식적 어조”',
+      '다른 파일을 근거로: 회의록·기획서를 참조해 문서 생성',
+      '개요만 주고 살 붙이기: “이 목차대로 각 절을 200자씩 작성”',
+    ]),
+    bullets('2. 재작성·편집 (Rewrite)', [
+      '문단 선택 → “더 간결하게 / 더 정중하게 / 불릿으로”',
+      '“전문 용어를 쉬운 말로 풀어줘”',
+      '“이 표를 문장 설명으로 바꿔줘”',
+    ]),
+    bullets('3. 요약 (Summarize)', [
+      '긴 문서 상단에서 “핵심 3가지로 요약”',
+      '“이 계약서에서 의무·기한만 뽑아줘”',
+    ]),
+    bullets('4. 문서에 대해 질문 (Chat)', [
+      '“이 문서에서 리스크로 언급된 부분은?”',
+      '“결론이 서론의 목표와 일치하나?”',
+    ]),
+    bullets('5. 실무 팁', [
+      '근거 파일을 지정하면 일반 지식이 아니라 내 자료로 씁니다.',
+      '초안은 뼈대로 쓰고, 사실·수치는 반드시 검토합니다.',
+      '긴 문서는 절 단위로 나눠 지시하면 품질이 안정적입니다.',
+    ]),
+  ], ['초안·재작성·요약·질문 4가지가 Word Copilot의 축입니다.', '다른 파일을 근거로 문서를 생성할 수 있습니다.', '결과는 초안이므로 사실·수치를 검토 후 확정합니다.'], ['Microsoft 365 Copilot 개요 — Word', 'Word에서 Copilot 사용'],
+    {
+      previous: 'm04',
+      next: 'm04-2',
+      sourceLinks: [
+        ['Microsoft 365 Copilot 개요 — Word (MS Learn)', 'https://learn.microsoft.com/ko-kr/microsoft-365/copilot/microsoft-365-copilot-overview'],
+        ['Word에서 Copilot 사용 (Support)', 'https://support.microsoft.com/en-us/microsoft-365-copilot/'],
+      ],
+    }],
   'm04-2': ['M4-2', 'Excel에서 Copilot — Edit with Copilot', '2026년 Excel Copilot은 표·차트·피벗·수식을 직접 다루며 복잡한 데이터 작업을 돕습니다.', [bullets('Edit with Copilot', ['월별 피벗과 추세 차트를 만듭니다.', '중복을 제거하고 부서별 합계 표를 만듭니다.', '이상치가 있는 행을 표시하고 이유를 설명합니다.']), bullets('수식·인사이트·Work IQ', ['전년 대비 증감률 수식을 제안받습니다.', '데이터에서 눈에 띄는 인사이트와 차트 유형을 찾습니다.', '관련 이메일·회의·파일을 연결해 다단계 편집을 돕습니다.']), bullets('실무 팁', ['데이터를 표(Table)로 정리합니다.', '큰 변경은 사본에서 시도하고 결과 수식을 검산합니다.'])], ['Edit with Copilot은 Excel 도구를 직접 조작합니다.', '표 정리·사본 작업·검산이 정확성 습관입니다.']],
   'm04-3': ['M4-3', 'PowerPoint에서 Copilot', '프롬프트나 Word 문서로 발표 뼈대를 만들고 슬라이드와 서식을 다듬습니다.', [bullets('프레젠테이션 생성', ['신규 서비스 소개 10장과 회사 템플릿을 요청합니다.', 'Word 파일과 Notebooks 맥락에서 덱을 생성합니다.']), bullets('슬라이드 편집·요약', ['슬라이드 추가·이미지 삽입·전체 서식 통일을 명령합니다.', '긴 덱을 요약하고 재무 관련 슬라이드를 찾습니다.']), bullets('실무 팁', ['회사 템플릿으로 브랜드 일관성을 유지합니다.', '자동 생성 덱은 메시지와 순서를 직접 다듬습니다.'])], ['프롬프트·Word·Notebooks에서 덱을 생성합니다.', '생성 결과는 구성 초안이므로 직접 다듬습니다.']],
   'm04-4': ['M4-4', 'Outlook에서 Copilot', '긴 스레드를 요약하고 초안을 대신 쓰며 어조를 코칭받습니다.', [bullets('스레드 요약·초안·코칭', ['결정·쟁점·남은 액션을 정리합니다.', '정중한 회신 초안과 회의 일정 제안을 작성합니다.', '명확성·감정·어조를 평가하고 개선합니다.']), bullets('받은 편지함·일정 전체 추론', ['2026년 Copilot Chat은 메일과 일정 전체를 대상으로 추론합니다.', '오늘 놓치면 안 되는 메일과 회의를 마감 순으로 정리합니다.']), bullets('실무 팁', ['회신 초안의 사실과 약속을 검토합니다.', '민감한 내용은 어조 코칭으로 점검합니다.'])], ['요약·초안·코칭이 Outlook Copilot의 3축입니다.', '발송 전 사실과 어조를 점검합니다.']],
@@ -252,8 +284,10 @@ const remainingPages = {
 
 const normalizePage = (slug, value) => {
   if (Array.isArray(value)) {
-    const [code, title, summary, sections, takeaways] = value
-    return modulePage(slug, code, title, summary, sections, takeaways, null, null)
+    const [code, title, summary, sections, takeaways, sources = [], navigation = {}] = value
+    const page = modulePage(slug, code, title, summary, sections, takeaways, navigation.previous || null, navigation.next || null, sources)
+    page.sourceLinks = navigation.sourceLinks || []
+    return page
   }
   return value
 }
@@ -724,6 +758,9 @@ function CourseDocument({ page, courseSlug, onNavigate, onBack, onHub }) {
     ['Word', '초안·재작성', 'm04-1'], ['Excel', 'Edit with Copilot', 'm04-2'], ['PowerPoint', '덱 생성', 'm04-3'],
     ['Outlook', '요약·초안', 'm04-4'], ['Teams', '회의·채널', 'm04-5'], ['기타', 'OneNote·Loop·Forms', 'm04-6'],
   ]
+  const wordCards = [
+    ['✍️', 'Draft', '초안 생성'], ['↔️', 'Rewrite', '재작성·톤'], ['📌', 'Summarize', '핵심 요약'], ['💬', 'Chat', '문서에 질문'],
+  ]
 
   return (
     <section className="course-doc-section">
@@ -766,6 +803,16 @@ function CourseDocument({ page, courseSlug, onNavigate, onBack, onHub }) {
             </section>
           )}
 
+          {page.slug === 'm04-1' && (
+            <section className="course-feature-panel word-feature-panel">
+              <p className="eyebrow">M365 COPILOT · M4-1</p>
+              <h2>Word에서 Copilot</h2>
+              <div className="word-flow-grid">
+                {wordCards.map(([icon, title, text]) => <div className="word-flow-card" key={title}><strong><span aria-hidden="true">{icon}</span>{title}</strong><small>{text}</small></div>)}
+              </div>
+            </section>
+          )}
+
           <div className="course-doc-body">
             {page.sections.map((section, index) => <CourseSection section={section} key={`${section.title}-${index}`} onNavigate={onNavigate} />)}
           </div>
@@ -781,7 +828,7 @@ function CourseDocument({ page, courseSlug, onNavigate, onBack, onHub }) {
             {page.next ? <a href={`#m365-copilot/${page.next}`} onClick={(event) => onNavigate(event, page.next)}>다음 모듈 →</a> : <span />}
           </nav>
 
-          {page.sources?.length > 0 && <section className="course-sources"><p className="eyebrow">Sources</p><h2>출처</h2><ul>{page.sources.map((source) => <li key={source}>{source}</li>)}</ul></section>}
+          {page.sources?.length > 0 && <section className="course-sources"><p className="eyebrow">Sources</p><h2>출처</h2><ul>{page.sourceLinks?.length > 0 ? page.sourceLinks.map(([label, url]) => <li key={url}><a href={url} target="_blank" rel="noreferrer">{label}</a></li>) : page.sources.map((source) => <li key={source}>{source}</li>)}</ul></section>}
         </article>
       </div>
     </section>

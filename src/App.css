@@ -1315,6 +1315,44 @@
   font-size: 12px;
 }
 
+.word-feature-panel {
+  background: linear-gradient(145deg, rgba(216, 251, 114, 0.18), rgba(140, 230, 221, 0.16));
+}
+
+.word-flow-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.word-flow-card {
+  display: grid;
+  min-height: 112px;
+  padding: 20px;
+  border: 1px solid rgba(9, 124, 63, 0.15);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.78);
+}
+
+.word-flow-card strong {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--navy);
+  font-size: 17px;
+}
+
+.word-flow-card strong span {
+  font-size: 22px;
+}
+
+.word-flow-card small {
+  align-self: end;
+  color: #647873;
+  font-size: 14px;
+}
+
 .course-doc-body {
   max-width: 920px;
 }
@@ -1423,6 +1461,14 @@
   gap: 7px;
   margin: 14px 0 0;
   padding-left: 20px;
+}
+
+.course-sources a {
+  color: var(--green);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: rgba(9, 124, 63, 0.35);
+  text-underline-offset: 3px;
 }
 
 .lab-page-section {
