@@ -718,7 +718,8 @@ function App() {
 }
 
 function CourseDocument({ page, courseSlug, onNavigate, onBack, onHub }) {
-  const [expanded, setExpanded] = useState(courseSlug !== 'm00')
+  const selectedGroup = courseModuleGroups.find((group) => group.slug === courseSlug || group.children?.some(([, , slug]) => slug === courseSlug))
+  const [expandedGroups, setExpandedGroups] = useState(() => selectedGroup && courseSlug !== 'm00' ? [selectedGroup.slug] : [])
   const appCards = [
     ['Word', '초안·재작성', 'm04-1'], ['Excel', 'Edit with Copilot', 'm04-2'], ['PowerPoint', '덱 생성', 'm04-3'],
     ['Outlook', '요약·초안', 'm04-4'], ['Teams', '회의·채널', 'm04-5'], ['기타', 'OneNote·Loop·Forms', 'm04-6'],
@@ -730,16 +731,16 @@ function CourseDocument({ page, courseSlug, onNavigate, onBack, onHub }) {
         <aside className="course-sidebar" aria-label="Microsoft 365 Copilot 과정 목차">
           <div className="course-sidebar-head">
             <strong>목차</strong>
-            <button type="button" onClick={() => setExpanded((value) => !value)}>{expanded ? '모두 접기' : '모두 펼치기'}</button>
+            <button type="button" onClick={() => setExpandedGroups((current) => current.length === courseModuleGroups.length ? [] : courseModuleGroups.map((group) => group.slug))}>{expandedGroups.length === courseModuleGroups.length ? '모두 접기' : '모두 펼치기'}</button>
           </div>
           <a className="course-home-link" href="#m365-copilot" onClick={onHub}>✦ Microsoft 365 Copilot</a>
           {courseModuleGroups.map((group) => (
             <div className="course-nav-group" key={group.code}>
-              <a className={`course-nav-link course-nav-parent${courseSlug === group.slug ? ' active' : ''}`} href={`#m365-copilot/${group.slug}`} onClick={(event) => onNavigate(event, group.slug)}>
+              <a className={`course-nav-link course-nav-parent${courseSlug === group.slug ? ' active' : ''}`} href={`#m365-copilot/${group.slug}`} onClick={(event) => { setExpandedGroups([group.slug]); onNavigate(event, group.slug) }}>
                 <span>{group.code}</span><strong>{group.title}</strong><i aria-hidden="true">›</i>
               </a>
-              {expanded && group.children?.map(([code, title, slug]) => (
-                <a className={`course-nav-link course-nav-child${courseSlug === slug ? ' active' : ''}`} href={`#m365-copilot/${slug}`} onClick={(event) => onNavigate(event, slug)} key={slug}>
+              {expandedGroups.includes(group.slug) && group.children?.map(([code, title, slug]) => (
+                <a className={`course-nav-link course-nav-child${courseSlug === slug ? ' active' : ''}`} href={`#m365-copilot/${slug}`} onClick={(event) => { setExpandedGroups([group.slug]); onNavigate(event, slug) }} key={slug}>
                   <span>{code}</span><strong>{title}</strong>
                 </a>
               ))}
