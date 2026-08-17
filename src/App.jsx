@@ -99,16 +99,48 @@ const courses = [
 
 const labMaterials = [
   {
-    status: 'Ready',
-    title: 'New Copilot Studio',
-    text: 'CLI 에이전트 개요를 바탕으로 하네스 설계, 에이전틱 루프, 스킬·도구·메모리의 핵심 흐름을 학습합니다.',
-    link: 'https://chichoi1991.github.io/Agent_Blog/chapters/newcs0-overview/',
-    tags: ['CLI 에이전트', '하네스 설계', 'Copilot Studio'],
+    status: 'Course 01',
+    title: 'Microsoft 365 Copilot',
+    text: 'Word·Excel·PowerPoint·Outlook·Teams 안의 Copilot부터 ChatGPT·NotebookLM·Cowork까지, 엔드유저가 실제로 쓰는 기능 전부를 하루에 익히는 실습 과정입니다.',
+    link: '#m365-copilot',
+    tags: ['Copilot Chat', 'Office Apps', 'Hands-on Lab'],
   },
   { status: 'Coming Soon', title: '과정 02', text: '세부 실습자료와 안내는 추후 이 공간에 채워질 예정입니다.' },
   { status: 'Coming Soon', title: '과정 03', text: '세부 실습자료와 안내는 추후 이 공간에 채워질 예정입니다.' },
   { status: 'Coming Soon', title: '과정 04', text: '세부 실습자료와 안내는 추후 이 공간에 채워질 예정입니다.' },
   { status: 'Coming Soon', title: '과정 05', text: '세부 실습자료와 안내는 추후 이 공간에 채워질 예정입니다.' },
+  { status: 'Coming Soon', title: '과정 06', text: '세부 실습자료와 안내는 추후 이 공간에 채워질 예정입니다.' },
+]
+
+const m365Modules = [
+  ['M0. What’s New', '2026 최신 변화', '새 앱 리디자인 · Work IQ · Cowork · Notebooks · GPT-5.6'],
+  ['M1. 시작하기', 'Copilot 이해·진입점', '새 앱 투어 · Copilot vs Copilot Chat · 프롬프트 기본기 · Work IQ 그라운딩'],
+  ['M2. Copilot Chat', '채팅으로 일하기', '업무 데이터 질문 · 참조 넣기 · Pages·Library · 이미지 · 예약 프롬프트 · 메모리'],
+  ['M3. Search·Notebooks', '찾기·정리', 'Copilot Search · Notebooks · 산출물 생성(문서·PPT·마인드맵)'],
+  ['M4. 앱 속 Copilot', '생산성 앱 활용', 'Word · Excel · PowerPoint · Outlook · Teams · OneNote·Loop·Forms'],
+  ['M5. 에이전트', '특화 Copilot', 'Agent Store · Researcher·Analyst · Agent Builder'],
+  ['M6. Cowork', '작업 위임·자동화', '개요·위임 · 스킬·플러그인 · 예약·사용'],
+  ['M7. 실습 Lab', '직접 만들기', 'Lab 0 채팅·프롬프트 · Lab 1 문서 자동화 · Lab 2 하루 업무 · Lab 3 에이전트 · Lab 4 Cowork'],
+]
+
+const m365Schedule = [
+  ['09:00~09:50', 'M1', '시작하기 — 새 앱 투어 · 프롬프트 기본기 · Work IQ', 'Demo'],
+  ['10:00~10:50', 'M2', 'Copilot Chat ① — 업무 데이터 질문 · 참조 넣기', 'Lab'],
+  ['11:00~11:50', 'M2·M3', 'Chat ② Pages·이미지·예약·메모리 + Search·Notebooks', 'Lab'],
+  ['11:50~13:00', '—', '점심시간', 'Break'],
+  ['13:00~13:50', 'M4', '앱 속 Copilot ① — Word · Excel · PowerPoint', 'Lab'],
+  ['14:00~14:50', 'M4', '앱 속 Copilot ② — Outlook · Teams · 기타 앱', 'Lab'],
+  ['15:00~15:50', 'M7', 'Lab 1 — 문서 자동화(Chat → Word → PPT)', 'Lab'],
+  ['16:00~16:50', 'M5·M6', '에이전트(Store·Researcher·Analyst·Builder) · Cowork(위임·스킬·예약)', 'Demo'],
+  ['17:00~17:50', 'M7', 'Lab 2 — Outlook·Teams 하루 업무', 'Lab'],
+  ['17:50~18:00', '—', '마무리', 'Wrap-up'],
+]
+
+const m365Updates = [
+  '새 Copilot 앱 리디자인: 통합 진입점, 작업 인식 프롬프트, 고정 세션을 중심으로 실습합니다.',
+  'Work IQ 인텔리전스 레이어: 업무 데이터 그라운딩이 응답 품질을 어떻게 바꾸는지 확인합니다.',
+  'Copilot Cowork와 Notebooks 개편: 위임형 작업, 정리, 산출물 생성 흐름을 다룹니다.',
+  'Excel Edit with Copilot과 GPT-5.6 모델 등 2026년 상반기 변화를 반영합니다.',
 ]
 
 const profileSectionIds = ['bio', 'fields', 'history', 'certifications', 'books']
@@ -117,6 +149,7 @@ function App() {
   const [openSections, setOpenSections] = useState(profileSectionIds)
   const [openHistoryYears, setOpenHistoryYears] = useState(['2026'])
   const [activeView, setActiveView] = useState(() => {
+    if (window.location.hash === '#m365-copilot' || window.location.hash === '#labs/m365-copilot') return 'labDetail'
     if (window.location.hash === '#labs') return 'labs'
     if (window.location.hash === '#inquiry') return 'contact'
     return 'home'
@@ -160,6 +193,12 @@ function App() {
     event.preventDefault()
     setActiveView('labs')
     window.history.replaceState(null, '', '#labs')
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+  const openLabDetail = (event) => {
+    event.preventDefault()
+    setActiveView('labDetail')
+    window.history.replaceState(null, '', '#m365-copilot')
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
   const openContactForm = (event) => {
@@ -395,17 +434,117 @@ function App() {
                 </section>
               </div>
           </section>
+        ) : activeView === 'labDetail' ? (
+          <section id="m365-copilot" className="lab-detail-section">
+            <div className="lab-detail-hero">
+              <a className="detail-back-link" href="#labs" onClick={openLabsView}>← 핸즈온랩 목록</a>
+              <p className="eyebrow">Course 01 · Hands-on Lab</p>
+              <h1>Microsoft 365 Copilot 기능·활용 실무</h1>
+              <p>Microsoft 365 Copilot을 관리자가 아닌 엔드유저 관점에서, 무엇을 · 어디서 · 어떻게 쓰는가를 기능별로 익히는 하루 완성 실무 과정입니다.</p>
+              <div className="detail-tags" aria-label="과정 핵심 키워드">
+                {['Copilot Chat', 'Word·Excel·PowerPoint', 'Outlook·Teams', 'Search·Notebooks', 'Agent·Cowork'].map((tag) => <span key={tag}>{tag}</span>)}
+              </div>
+            </div>
+
+            <div className="lab-detail-content">
+              <section className="detail-panel detail-summary-panel">
+                <div>
+                  <p className="eyebrow">Overview</p>
+                  <h2>공개 과정</h2>
+                  <p>Word·Excel·PowerPoint·Outlook·Teams 안의 Copilot부터 Copilot Chat·Search·Notebooks·에이전트·Cowork까지, 실제 업무자가 자주 만나는 기능을 실무 시나리오로 직접 써 보며 익힙니다.</p>
+                </div>
+                <aside className="detail-callout">
+                  <strong>과정 목표</strong>
+                  <p>새 Copilot 앱 화면에서 시작해 문서 작성, 데이터 분석, 회의·메일 처리, 업무 위임까지 하루 업무 흐름으로 연결합니다.</p>
+                </aside>
+              </section>
+
+              <section className="detail-panel">
+                <p className="eyebrow">What’s New</p>
+                <h2>2026년 무엇이 달라졌나</h2>
+                <div className="update-grid">
+                  {m365Updates.map((item) => <article key={item}>{item}</article>)}
+                </div>
+              </section>
+
+              <section className="detail-panel">
+                <p className="eyebrow">Curriculum</p>
+                <h2>모듈 목차</h2>
+                <div className="table-scroll">
+                  <table className="detail-table module-table">
+                    <thead>
+                      <tr><th>모듈</th><th>주제</th><th>핵심 내용</th></tr>
+                    </thead>
+                    <tbody>
+                      {m365Modules.map(([module, topic, details]) => <tr key={module}><th>{module}</th><td>{topic}</td><td>{details}</td></tr>)}
+                    </tbody>
+                  </table>
+                </div>
+              </section>
+
+              <section className="detail-panel">
+                <p className="eyebrow">Schedule</p>
+                <h2>1일 타임테이블 <span>09:00~18:00</span></h2>
+                <p className="detail-note">50분 수업 · 10분 휴식 · 점심 11:50~13:00 기준으로 운영합니다.</p>
+                <div className="table-scroll">
+                  <table className="detail-table schedule-table">
+                    <thead>
+                      <tr><th>시간</th><th>모듈</th><th>내용</th><th>형태</th></tr>
+                    </thead>
+                    <tbody>
+                      {m365Schedule.map(([time, module, details, type]) => <tr key={`${time}-${module}`}><th>{time}</th><td>{module}</td><td>{details}</td><td><span>{type}</span></td></tr>)}
+                    </tbody>
+                  </table>
+                </div>
+              </section>
+
+              <section className="detail-panel detail-two-column">
+                <div>
+                  <p className="eyebrow">Preparation</p>
+                  <h2>실습 준비물</h2>
+                  <p>실습에는 Microsoft 365 Copilot 라이선스가 부여된 회사·학교 계정이 필요합니다. Copilot Chat만 있는 계정으로도 프롬프트·이미지·Pages 일부 실습은 진행할 수 있으나, 업무 데이터 그라운딩과 앱 내 Copilot 실습은 라이선스가 있어야 합니다.</p>
+                </div>
+                <div>
+                  <p className="eyebrow">Mental Model</p>
+                  <h2>한 줄 멘탈모델</h2>
+                  <p className="detail-quote">묻지 말고 맡겨라. 어디서 시작하고, 무엇에 근거하며, 어떻게 요청할지 갖추면 Copilot이 초안·요약·분석·실행까지 끌고 갑니다.</p>
+                </div>
+              </section>
+
+              <section className="detail-panel">
+                <p className="eyebrow">Next Step</p>
+                <h2>다음 단계</h2>
+                <div className="detail-next-actions">
+                  <a href="https://canrobot.co.kr/courses/m365-copilot/m00/" target="_blank" rel="noreferrer">M0. What’s New 2026</a>
+                  <a href="https://canrobot.co.kr/courses/m365-copilot/m01/" target="_blank" rel="noreferrer">M1. 시작하기</a>
+                  <a href="#inquiry" onClick={openContactForm}>강의 문의하기</a>
+                </div>
+              </section>
+
+              <section className="detail-panel detail-sources">
+                <p className="eyebrow">Sources</p>
+                <h2>출처</h2>
+                <ul>
+                  <li><a href="https://learn.microsoft.com/ko-kr/microsoft-365/copilot/microsoft-365-copilot-overview" target="_blank" rel="noreferrer">Microsoft 365 Copilot 개요</a></li>
+                  <li><a href="https://learn.microsoft.com/copilot/overview" target="_blank" rel="noreferrer">Copilot Chat 개요</a></li>
+                  <li><a href="https://www.microsoft.com/en-us/microsoft-365/blog/2026/05/28/introducing-a-new-design-for-microsoft-365-copilot/" target="_blank" rel="noreferrer">Microsoft 365 Copilot 새 디자인 발표</a></li>
+                  <li><a href="https://canrobot.co.kr/courses/m365-copilot/" target="_blank" rel="noreferrer">CanRobot 원본 과정 페이지</a></li>
+                </ul>
+              </section>
+            </div>
+          </section>
         ) : (
           <section id="labs" className="section lab-section lab-page-section">
-            <SectionHead eyebrow="Hands-on Lab" title="핸즈온랩" text="" />
+            <SectionHead eyebrow="Hands-on Lab" title="핸즈온랩" text="기업 · 기관 · 개인 대상 Microsoft AI 교육 과정 — 모든 과정은 실습 중심, 기업 맞춤 커스터마이징이 가능합니다." centered />
             <div className="lab-placeholder" aria-label="핸즈온랩 준비 영역">
               {labMaterials.map((lab) => (
                 <article className={lab.link ? 'lab-card-featured' : undefined} key={lab.title}>
+                  {lab.link ? <div className="lab-icon" aria-hidden="true">✦</div> : null}
                   <span>{lab.status}</span>
                   <h3>{lab.title}</h3>
                   <p>{lab.text}</p>
                   {lab.tags ? <div className="lab-tags">{lab.tags.map((tag) => <em key={tag}>{tag}</em>)}</div> : null}
-                  {lab.link ? <a className="lab-link" href={lab.link} target="_blank" rel="noreferrer">원문 자료 보기</a> : null}
+                  {lab.link ? <a className="lab-link" href={lab.link} onClick={openLabDetail}>강의 보기 →</a> : null}
                 </article>
               ))}
             </div>
