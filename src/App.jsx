@@ -733,12 +733,12 @@ function CourseDocument({ page, courseSlug, onNavigate, onBack, onHub }) {
             <button type="button" onClick={() => setExpanded((value) => !value)}>{expanded ? '모두 접기' : '모두 펼치기'}</button>
           </div>
           <a className="course-home-link" href="#m365-copilot" onClick={onHub}>✦ Microsoft 365 Copilot</a>
-          {expanded && courseModuleGroups.map((group) => (
+          {courseModuleGroups.map((group) => (
             <div className="course-nav-group" key={group.code}>
               <a className={`course-nav-link course-nav-parent${courseSlug === group.slug ? ' active' : ''}`} href={`#m365-copilot/${group.slug}`} onClick={(event) => onNavigate(event, group.slug)}>
                 <span>{group.code}</span><strong>{group.title}</strong><i aria-hidden="true">›</i>
               </a>
-              {group.children?.map(([code, title, slug]) => (
+              {expanded && group.children?.map(([code, title, slug]) => (
                 <a className={`course-nav-link course-nav-child${courseSlug === slug ? ' active' : ''}`} href={`#m365-copilot/${slug}`} onClick={(event) => onNavigate(event, slug)} key={slug}>
                   <span>{code}</span><strong>{title}</strong>
                 </a>
