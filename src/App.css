@@ -1106,7 +1106,7 @@
   padding: 92px max(24px, calc((100vw - 1040px) / 2)) 88px;
   color: var(--navy);
   background:
-    linear-gradient(180deg, rgba(9, 27, 90, 0.96) 0 250px, #f6f8fb 250px 100%);
+    linear-gradient(180deg, rgba(6, 52, 58, 0.98) 0 250px, #f6f8fb 250px 100%);
 }
 
 .lab-page-section .section-head {
@@ -1127,7 +1127,7 @@
 }
 
 .lab-page-section .eyebrow {
-  color: #60d9ff;
+  color: var(--lime);
 }
 
 .lab-placeholder {
@@ -1564,7 +1564,7 @@
 
   .lab-page-section {
     padding: 62px 18px 68px;
-    background: linear-gradient(180deg, rgba(9, 27, 90, 0.96) 0 230px, #f6f8fb 230px 100%);
+    background: linear-gradient(180deg, rgba(6, 52, 58, 0.98) 0 230px, #f6f8fb 230px 100%);
   }
 
   .lab-page-section .section-head {
