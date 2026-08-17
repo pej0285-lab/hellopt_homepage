@@ -1353,6 +1353,35 @@
   font-size: 14px;
 }
 
+.module-visual-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.module-visual-card {
+  display: grid;
+  gap: 12px;
+  min-height: 82px;
+  padding: 16px;
+  border: 1px solid rgba(9, 124, 63, 0.15);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.78);
+}
+
+.module-visual-card span {
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+}
+
+.module-visual-card strong {
+  color: var(--navy);
+  font-size: 16px;
+}
+
 .course-doc-body {
   max-width: 920px;
 }
@@ -2018,6 +2047,10 @@
   }
 
   .app-map-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .module-visual-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 

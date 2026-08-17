@@ -296,7 +296,36 @@ Object.entries(subPages).forEach(([slug, value]) => { coursePages[slug] = normal
 Object.entries(detailPages).forEach(([slug, value]) => { coursePages[slug] = normalizePage(slug, value) })
 Object.entries(remainingPages).forEach(([slug, value]) => { coursePages[slug] = normalizePage(slug, value) })
 
+const sourceCatalog = {
+  m00: [['새 디자인 발표 (Microsoft 365 Blog)', 'https://www.microsoft.com/en-us/microsoft-365/blog/2026/05/28/introducing-a-new-design-for-microsoft-365-copilot/'], ['Copilot Cowork (Microsoft 365 Blog)', 'https://www.microsoft.com/en-us/microsoft-365/blog/2026/03/09/copilot-cowork-a-new-way-of-getting-work-done/'], ['Microsoft 365 Copilot 릴리스 정보', 'https://learn.microsoft.com/microsoft-365/copilot/release-notes']],
+  m01: [['Microsoft 365 Copilot 개요 (MS Learn)', 'https://learn.microsoft.com/ko-kr/microsoft-365/copilot/microsoft-365-copilot-overview'], ['어떤 Copilot이 맞나 (MS Learn)', 'https://learn.microsoft.com/microsoft-365/copilot/which-copilot-for-your-organization'], ['Copilot 프롬프트 갤러리', 'https://m365.cloud.microsoft/copilot-prompts']],
+  m02: [['Copilot Chat 개요 (MS Learn)', 'https://learn.microsoft.com/copilot/overview'], ['Copilot 개인화·메모리 (MS Learn)', 'https://learn.microsoft.com/microsoft-365/copilot/copilot-personalization-memory'], ['Microsoft 365 Copilot 릴리스 정보', 'https://learn.microsoft.com/microsoft-365/copilot/release-notes']],
+  m03: [['Copilot Search 개요 (MS Learn)', 'https://learn.microsoft.com/ko-kr/microsoft-365/copilot/microsoft-365-copilot-search'], ['Microsoft 365 Copilot 릴리스 정보', 'https://learn.microsoft.com/microsoft-365/copilot/release-notes']],
+  m04: [['Microsoft 365 Copilot 개요 — 앱별 기능', 'https://learn.microsoft.com/ko-kr/microsoft-365/copilot/microsoft-365-copilot-overview'], ['Microsoft 365 Copilot 도움말·학습', 'https://support.microsoft.com/en-us/microsoft-365-copilot/'], ['Microsoft 365 Copilot 릴리스 정보', 'https://learn.microsoft.com/microsoft-365/copilot/release-notes']],
+  m05: [['Microsoft 365 Copilot 확장성 개요', 'https://learn.microsoft.com/ko-kr/microsoft-365-copilot/extensibility'], ['선언형 에이전트 개요', 'https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-declarative-agent']],
+  m06: [['Use Copilot Cowork', 'https://learn.microsoft.com/microsoft-365/copilot/cowork/use-cowork'], ['Copilot Cowork (Microsoft 365 Blog)', 'https://www.microsoft.com/en-us/microsoft-365/blog/2026/03/09/copilot-cowork-a-new-way-of-getting-work-done/'], ['Copilot Cowork 요금·플랜', 'https://www.microsoft.com/en-us/microsoft-365-copilot/pricing']],
+  m07: [['Microsoft 365 Copilot 도움말·학습', 'https://support.microsoft.com/en-us/microsoft-365-copilot/'], ['Copilot 프롬프트 갤러리', 'https://m365.cloud.microsoft/copilot-prompts']],
+}
+
+const visualizationCatalog = {
+  M0: ['NEW', '앱 통합', 'Work IQ', 'Cowork', 'Notebooks', '새 모델'],
+  M1: ['진입점', '라이선스', '프롬프트', '그라운딩'],
+  M2: ['업무 데이터', '참조', 'Pages', '이미지', '예약', '메모리'],
+  M3: ['Search', 'Notebooks', 'Quick create'],
+  M4: ['Word', 'Excel', 'PowerPoint', 'Outlook', 'Teams', '기타 앱'],
+  M5: ['Agent Store', 'Researcher', 'Analyst', 'Builder'],
+  M6: ['정의', '계획', '실행', '산출', '스킬', '예약'],
+  M7: ['Lab 0', 'Lab 1', 'Lab 2', 'Lab 3', 'Lab 4'],
+}
+
 const courseSlugOrder = courseModuleGroups.flatMap((group) => [group.slug, ...(group.children?.map(([, , slug]) => slug) || [])])
+Object.entries(coursePages).forEach(([, page]) => {
+  const code = page.code?.split('-')[0]?.toLowerCase() || ''
+  const parentCode = code.startsWith('m') ? `m${code.slice(1).padStart(2, '0')}` : code
+  page.sourceLinks = page.sourceLinks?.length ? page.sourceLinks : sourceCatalog[parentCode] || []
+  page.visualization = visualizationCatalog[page.code?.split('-')[0]] || []
+})
+
 courseSlugOrder.forEach((slug, index) => {
   const page = coursePages[slug]
   if (!page) return
@@ -809,6 +838,16 @@ function CourseDocument({ page, courseSlug, onNavigate, onBack, onHub }) {
               <h2>Word에서 Copilot</h2>
               <div className="word-flow-grid">
                 {wordCards.map(([icon, title, text]) => <div className="word-flow-card" key={title}><strong><span aria-hidden="true">{icon}</span>{title}</strong><small>{text}</small></div>)}
+              </div>
+            </section>
+          )}
+
+          {page.visualization?.length > 0 && page.code !== 'M4' && page.slug !== 'm04-1' && (
+            <section className="course-feature-panel course-visualization-panel">
+              <p className="eyebrow">M365 COPILOT · {page.code}</p>
+              <h2>과정 시각화</h2>
+              <div className="module-visual-grid">
+                {page.visualization.map((item, index) => <div className="module-visual-card" key={`${item}-${index}`}><span>{String(index + 1).padStart(2, '0')}</span><strong>{item}</strong></div>)}
               </div>
             </section>
           )}
