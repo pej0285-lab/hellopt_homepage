@@ -585,7 +585,7 @@ function App() {
               </div>
           </section>
         ) : activeView === 'courseDoc' ? (
-          <CourseDocument page={coursePages[courseSlug] || coursePages.m00} courseSlug={courseSlug} onNavigate={openCoursePage} onBack={openLabsView} onHub={openCourseHub} />
+          <CourseDocument key={courseSlug} page={coursePages[courseSlug] || coursePages.m00} courseSlug={courseSlug} onNavigate={openCoursePage} onBack={openLabsView} onHub={openCourseHub} />
         ) : activeView === 'labDetail' ? (
           <section id="m365-copilot" className="lab-detail-section">
             <div className="lab-detail-hero">
@@ -718,7 +718,7 @@ function App() {
 }
 
 function CourseDocument({ page, courseSlug, onNavigate, onBack, onHub }) {
-  const [expanded, setExpanded] = useState(true)
+  const [expanded, setExpanded] = useState(courseSlug !== 'm00')
   const appCards = [
     ['Word', '초안·재작성', 'm04-1'], ['Excel', 'Edit with Copilot', 'm04-2'], ['PowerPoint', '덱 생성', 'm04-3'],
     ['Outlook', '요약·초안', 'm04-4'], ['Teams', '회의·채널', 'm04-5'], ['기타', 'OneNote·Loop·Forms', 'm04-6'],

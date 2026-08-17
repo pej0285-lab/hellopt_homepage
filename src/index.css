@@ -10,8 +10,8 @@
   --green: #097c3f;
   --lime: #d8fb72;
   --aqua: #8ce6dd;
-  --heading: 'SUIT', 'Noto Sans KR', sans-serif;
-  --body: 'SUIT', 'Noto Sans KR', sans-serif;
+  --heading: 'Noto Sans KR', 'SUIT', sans-serif;
+  --body: 'Noto Sans KR', 'SUIT', sans-serif;
   color: var(--ink);
   background: var(--page);
   font-family: var(--body);
