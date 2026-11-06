@@ -105,7 +105,13 @@ const labMaterials = [
     link: '#m365-copilot',
     tags: ['Copilot Chat', 'Office Apps', 'Hands-on Lab'],
   },
-  { status: 'Coming Soon', title: '과정 02', text: '세부 실습자료와 안내는 추후 이 공간에 채워질 예정입니다.' },
+  {
+    status: 'Course 02',
+    title: 'AI 데이터 분석과 업무 자동화',
+    text: '엑셀 함수, VBA 자동화, 공공데이터 분석을 교안 원문 프롬프트로 실습합니다. 본문 실습 10개와 발표자 노트 1개를 확인하고 바로 복사해 사용하세요.',
+    link: `${import.meta.env.BASE_URL}labs/course02/`,
+    tags: ['Excel · VBA', '데이터 분석', '실습 프롬프트북'],
+  },
   { status: 'Coming Soon', title: '과정 03', text: '세부 실습자료와 안내는 추후 이 공간에 채워질 예정입니다.' },
   { status: 'Coming Soon', title: '과정 04', text: '세부 실습자료와 안내는 추후 이 공간에 채워질 예정입니다.' },
   { status: 'Coming Soon', title: '과정 05', text: '세부 실습자료와 안내는 추후 이 공간에 채워질 예정입니다.' },
@@ -759,7 +765,7 @@ function App() {
                   <h3>{lab.title}</h3>
                   <p>{lab.text}</p>
                   {lab.tags ? <div className="lab-tags">{lab.tags.map((tag) => <em key={tag}>{tag}</em>)}</div> : null}
-                  {lab.link ? <a className="lab-link" href={lab.link} onClick={openLabDetail}>강의 보기 →</a> : null}
+                  {lab.link ? <a className="lab-link" href={lab.link} onClick={lab.link.startsWith('#') ? openLabDetail : undefined}>{lab.status === 'Course 02' ? '프롬프트북 열기 →' : '강의 보기 →'}</a> : null}
                 </article>
               ))}
             </div>
