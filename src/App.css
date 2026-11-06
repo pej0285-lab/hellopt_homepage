@@ -2719,3 +2719,46 @@
     font-size: 14px;
   }
 }
+
+/* Header redesign draft: white header and supplied brand assets. */
+.site-header {
+  background: #ffffff;
+  border-bottom: 1px solid rgba(6, 37, 43, 0.12);
+  box-shadow: 0 8px 26px rgba(6, 37, 43, 0.06);
+}
+.site-header nav a { color: #06252b; }
+.site-header nav a:hover { color: #097c3f; }
+.site-header a:focus-visible { outline: 3px solid #0d6f6d; outline-offset: 5px; }
+.header-badges a { display: inline-flex; align-items: center; justify-content: center; border-radius: 6px; }
+.header-badges a:hover { background: #f1f6f3; }
+
+/* Display the supplied logo without its outer whitespace. */
+.site-header .brand { position: relative; width: 134px; height: 36px; overflow: hidden; }
+.site-header .brand img { position: absolute; width: 175px; max-width: none; height: auto; left: -21px; top: -44px; object-fit: contain; }
+.site-header .header-mct-badge { width: 43px; height: 52px; border-radius: 0; object-fit: contain; }
+@media (max-width: 700px) {
+  .site-header .brand { width: 121px; height: 32px; }
+  .site-header .brand img { width: 159px; height: auto; left: -19px; top: -40px; }
+  .site-header .header-mct-badge { width: 33px; height: 40px; }
+}
+
+/* Profile draft: use the supplied shield badge, matching the header. */
+.bio-badges .mct-badge-shield { border-radius: 0; object-fit: contain; }
+
+/* Footer draft: match the compact white header and preserve footer content. */
+.site-footer { padding: 9px max(24px, calc((100vw - 1160px) / 2)); min-height: 70px; background: #fff; color: #06252b; border: 0; gap: 0; }
+.footer-inner { min-height: 51px; padding-top: 0; border: 0; }
+.footer-brand { position: relative; width: 134px; height: 36px; overflow: hidden; }
+.footer-brand img { position: absolute; width: 175px; max-width: none; height: auto; left: -21px; top: -44px; object-fit: contain; }
+.footer-site { color: #06252b; }
+.footer-site:hover { color: #097c3f; }
+.site-footer p { color: #526260; }
+.footer-brand:focus-visible, .footer-site:focus-visible { outline: 3px solid #0d6f6d; outline-offset: 4px; }
+@media (max-width: 720px) {
+  .site-footer { padding: 13px 20px; }
+  .footer-inner { grid-template-columns: auto minmax(0, 1fr); gap: 10px 16px; }
+  .footer-brand { width: 121px; height: 32px; }
+  .footer-brand img { width: 159px; height: auto; left: -19px; top: -40px; }
+  .footer-site { justify-self: end; font-size: 12px; }
+  .site-footer p { grid-column: 1 / -1; justify-self: center; text-align: center; font-size: 11px; }
+}

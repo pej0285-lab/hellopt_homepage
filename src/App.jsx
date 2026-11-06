@@ -449,14 +449,14 @@ function App() {
     <div className="site-shell">
       <header className="site-header">
         <a className="brand" href="#top" onClick={openHomeSection('#top')} aria-label="HelloPT 홈으로 이동">
-          <img src={asset('brand/hellopt-logo-original.png')} alt="HelloPT" />
+          <img src={asset('brand/hellopt-logo-refined.png')} alt="HelloPT" />
         </a>
         <nav aria-label="주요 메뉴">
           {navItems.map(([label, href, view]) => <a key={href} href={href} onClick={view === 'labs' ? openLabsView : openHomeSection(href)}>{label}</a>)}
         </nav>
         <div className="header-badges" aria-label="강사 인증 로고">
-          <img className="header-titan-badge" src={asset('brand/titan-badge.png')} alt="TITAN" />
-          <img className="header-mct-badge" src={asset('brand/mct-badge-round.png')} alt="MCT" />
+          <a href="https://www.credly.com/users/eunjin-park.2ccd066a/edit/badges/credly" target="_blank" rel="noopener noreferrer" aria-label="TITAN 인증 배지 보기 (새 창)"><img className="header-titan-badge" src={asset('brand/titan-badge.png')} alt="TITAN" /></a>
+          <a href="https://www.credly.com/users/eunjin-park.2ccd066a/edit/badges/credly" target="_blank" rel="noopener noreferrer" aria-label="MCT 인증 배지 보기 (새 창)"><img className="header-mct-badge" src={asset('brand/mct-badge-shield.png')} alt="MCT" /></a>
         </div>
       </header>
 
@@ -492,7 +492,7 @@ function App() {
           <div className="accordion-stack">
             <AccordionPanel id="bio" title="약력" open={isOpen('bio')} onToggle={toggleSection}>
               <div className="bio-layout">
-                <img className="bio-photo" src={asset('brand/portrait.png')} alt="박은진 강사 얼굴 사진" />
+                <img className="bio-photo" src={asset('brand/portrait-updated.png')} alt="박은진 강사 얼굴 사진" />
                 <div className="bio-copy">
                   <div className="bio-identity">
                     <span>Hello. People & Technology.</span>
@@ -515,7 +515,7 @@ function App() {
                 <div className="bio-side">
                   <div className="bio-badges" aria-label="강사 인증 및 브랜드">
                     <img className="titan-badge" src={asset('brand/titan-badge.png')} alt="Microsoft Frontier Transformation Engineer TITAN 뱃지" />
-                    <img className="mct-badge" src={asset('brand/mct-badge-round.png')} alt="MCT 뱃지" />
+                    <img className="mct-badge mct-badge-shield" src={asset('brand/mct-badge-shield.png')} alt="MCT 뱃지" />
                   </div>
                 </div>
               </div>
@@ -776,7 +776,7 @@ function App() {
       <footer className="site-footer">
         <div className="footer-inner">
           <a className="footer-brand" href="#top" onClick={openHomeSection('#top')} aria-label="HelloPT 홈으로 이동">
-            <img src={asset('brand/hellopt-logo-original.png')} alt="HelloPT" />
+            <img src={asset('brand/hellopt-logo-refined.png')} alt="HelloPT" />
           </a>
           <a className="footer-site" href="https://www.hellopt.co.kr" target="_blank" rel="noreferrer">www.hellopt.co.kr</a>
           <p>Copyright © 2026 HelloPT All rights reserved</p>
