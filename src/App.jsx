@@ -107,8 +107,8 @@ const labMaterials = [
   },
   {
     status: 'Course 02',
-    title: 'AI 데이터 분석과 업무 자동화',
-    text: '엑셀 함수, VBA 자동화, 공공데이터 분석을 교안 원문 프롬프트로 실습합니다. 본문 실습 10개와 발표자 노트 1개를 확인하고 바로 복사해 사용하세요.',
+    title: 'AI활용 엑셀 데이터분석',
+    text: '엑셀 함수 작성부터 VBA 업무 자동화, 공공데이터 분석까지. 10개의 프롬프트를 복사해 AI와 함께 실습하는 과정입니다.',
     link: `${import.meta.env.BASE_URL}labs/course02/`,
     tags: ['Excel · VBA', '데이터 분석', '실습 프롬프트북'],
   },
