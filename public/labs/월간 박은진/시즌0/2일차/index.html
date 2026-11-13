@@ -1,40 +1,113 @@
-<!doctype html>
-<html lang="ko">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="월간 박은진 시즌0 2일차 — M365 Copilot을 활용한 비즈니스 워크플로우 혁신(AB-730) 실습 프롬프트 북">
-  <title>M365 Copilot을 활용한 비즈니스 워크플로우 혁신_AB-730 | 월간 박은진</title>
-  <link rel="stylesheet" href="./style.css">
-  <script type="module" src="./app.js"></script>
-</head>
-<body>
-  <header class="topbar">
-    <a class="brand" href="../../../../#labs">HelloPT<span>월간 박은진</span></a>
-    <span class="course-badge">시즌0 <span aria-hidden="true">/</span> 2일차</span>
-    <a class="back" href="../../../../#labs">← 핸즈온랩 목록</a>
-    <button id="menu-toggle" type="button" aria-controls="sidebar" aria-expanded="false">실습 목차</button>
-  </header>
-  <div class="layout">
-    <aside id="sidebar" aria-label="실습 목차">
-      <div class="sidebar-intro"><span class="eyebrow">PRACTICE GUIDE</span><h2>실습 프롬프트 북</h2><p>시즌0 · 2일차</p></div>
-      <nav id="contents" aria-label="앱별 실습 메뉴"></nav>
-      <p class="sidebar-footer">월간 박은진 <span>함께 배우고, 업무에 바로 적용하세요.</span></p>
-    </aside>
-    <main id="main">
-      <header class="hero" id="overview">
-        <div class="hero-label"><span class="eyebrow">MONTHLY PARK EUNJIN</span><span class="day-label">DAY 02 · AB-730</span></div>
-        <h1><span>M365 Copilot을 활용한</span>비즈니스 워크플로우 혁신</h1>
-        <p class="subtitle">Word의 문서 작성부터 PowerPoint의 발표자료, Excel의 데이터 분석까지.<br>교재 순서에 따라 프롬프트를 복사하고 직접 실습해 보세요.</p>
-        <div class="course-stats"><span><b>03</b> Microsoft 365 앱</span><span><b>28</b> 실습</span><span><b>41</b> 복사 가능한 프롬프트</span></div>
-      </header>
-      <section class="guide" aria-labelledby="guide-title"><div class="guide-icon" aria-hidden="true">↗</div><div><h2 id="guide-title">이렇게 실습하세요</h2><p>왼쪽에서 실습을 선택한 뒤, 안내된 파일을 열고 <strong>복사</strong> 버튼으로 프롬프트를 가져오세요. 각 앱의 Copilot에 붙여넣어 실행합니다.</p><p class="source-note">프롬프트 출처: 제공된 「실습 프롬프트」 문서 · 프롬프트 원문을 그대로 수록했습니다. 실습 파일은 별도로 준비해 주세요.</p></div></section>
-      <div class="search-row"><label for="search">실습 찾아보기</label><div class="search-input"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="실습명, 파일명 또는 프롬프트 검색" autocomplete="off"></div><span id="result-count" role="status"></span></div>
-      <div id="exercises"></div>
-      <p id="empty" hidden>검색 결과가 없습니다. 다른 검색어를 입력해 주세요.</p>
-      <footer class="page-footer">HelloPT · 월간 박은진 <span>시즌0 / 2일차 실습 프롬프트 북</span></footer>
-    </main>
-  </div>
-  <div id="toast" role="status" aria-live="polite"></div>
-</body>
-</html>
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>월간 박은진 | 2일차 실습용 프롬프트북</title><style>
+:root{--ink:#14213d;--muted:#64748b;--line:#e2e8f0;--bg:#f8fafc;--navy:#0f2747}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:"Pretendard","Segoe UI","Malgun Gothic",sans-serif;background:#fff;color:#172033}header{background:linear-gradient(135deg,#0b2342,#173e70);color:#fff;padding:74px 24px 62px}.wrap{max-width:1120px;margin:auto}.kicker{color:#8cc8ff;font-weight:800;letter-spacing:.08em;font-size:13px}h1{font-size:clamp(34px,5vw,58px);line-height:1.08;margin:14px 0}.lead{max-width:760px;color:#dbeafe;font-size:18px;line-height:1.7}nav{position:fixed;left:0;top:0;width:250px;height:100vh;z-index:20;background:#f8fafc;border-right:1px solid var(--line);padding-top:32px;overflow-y:auto}nav::before{content:"목차";display:block;padding:0 22px 18px;font-size:18px;font-weight:900;color:#64748b;border-bottom:1px solid var(--line);margin-bottom:15px}nav .wrap{display:flex;flex-direction:column;gap:8px;padding:0 14px;max-width:none;margin:0}nav a{text-decoration:none;color:#334155;font-weight:800;padding:13px 14px;border-radius:10px;white-space:normal;border-left:4px solid transparent}nav a:hover{background:#ede9fe;color:#6d28d9;border-left-color:#7c3aed}header{margin-left:250px}main{max-width:none;margin-left:250px;padding:42px 42px 80px}footer{margin-left:250px}.intro{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:48px}.intro div{background:#f8fafc;border:1px solid var(--line);border-radius:16px;padding:18px}.intro b{display:block;color:#0f2747;margin-bottom:6px}.app{scroll-margin-top:72px;margin:42px 0 70px}.app-head{border-left:6px solid var(--accent);padding:4px 0 4px 18px;margin-bottom:28px}.eyebrow{font-size:11px;font-weight:900;letter-spacing:.12em;color:var(--accent)}h2{font-size:34px;margin:5px 0}.module{margin:28px 0 38px}h3{font-size:21px;color:#334155;border-bottom:1px solid var(--line);padding-bottom:10px}.labgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.card{border:1px solid var(--line);border-radius:18px;background:#fff;overflow:hidden;box-shadow:0 7px 24px rgba(15,39,71,.06)}.cardtop{padding:18px 20px 13px;border-top:4px solid var(--accent)}.badge{display:inline-block;background:color-mix(in srgb,var(--accent) 12%,white);color:var(--accent);font-weight:900;font-size:12px;padding:6px 9px;border-radius:7px}h4{font-size:17px;margin:10px 0 0}.file{margin:0 20px 12px;background:#fff8e6;border:1px solid #fde7ae;border-radius:10px;padding:10px 12px;font-size:13px}.file span{display:block;color:#9a6700;font-size:11px;font-weight:900;margin-bottom:3px}.file strong{font-weight:700;color:#664d03}.sub{margin:14px 20px 6px;color:var(--accent);font-size:12px;font-weight:900}.prompt{position:relative;background:#f8fafc;border-top:1px solid #edf2f7;padding:18px 20px 20px}pre{margin:0;padding-right:58px;white-space:pre-wrap;word-break:keep-all;font-family:"Segoe UI","Malgun Gothic",sans-serif;font-size:14px;line-height:1.7;color:#1e293b}.copy{position:absolute;right:14px;top:14px;border:1px solid #cbd5e1;background:#fff;color:#334155;border-radius:8px;padding:7px 11px;font-weight:800;cursor:pointer}.copy:hover{border-color:var(--accent);color:var(--accent)}.copy.done{background:#dcfce7;border-color:#86efac;color:#166534}footer{background:#0b2342;color:#b7c7dc;text-align:center;padding:28px 20px;font-size:13px}@media(max-width:780px){nav{position:relative;width:100%;height:auto;border-right:0;border-bottom:1px solid var(--line);padding:14px 0}nav::before{padding:0 16px 10px;margin-bottom:8px}nav .wrap{padding:0 10px}header,main,footer{margin-left:0}.intro,.labgrid{grid-template-columns:1fr}header{padding-top:44px}main{padding:28px 16px 60px}}
+
+pre{overflow-wrap:anywhere}.labgrid>*{min-width:0}.home-link{margin-top:18px;border-top:1px solid var(--line);border-radius:0;font-size:13px}button:focus-visible,a:focus-visible,pre:focus-visible{outline:3px solid #7c3aed;outline-offset:3px}#copy-status{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);max-width:90vw;width:max-content;background:#0f2747;color:white;padding:12px 18px;border-radius:10px;z-index:30;font-size:13px;pointer-events:none}#copy-status:empty{display:none}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style></head><body><header><div class="wrap"><div class="kicker">월간 박은진 · DAY 2 HANDS-ON</div><h1>Microsoft 365 Copilot<br>실습용 프롬프트북</h1><p class="lead">Word, PowerPoint, Excel Copilot 실습 프롬프트를 한 곳에서 확인하고 바로 복사하세요. 제공된 프롬프트 문구는 수정하지 않고 그대로 수록했습니다.</p></div></header><nav aria-label="실습 목차"><div class="wrap"><a href="#Word-Copilot">Word Copilot</a><a href="#PowerPoint-Copilot">PowerPoint Copilot</a><a href="#Excel-Copilot">Excel Copilot</a><a class="home-link" href="../index.html">← 시즌0 강의 목록</a></div></nav><main><section class="intro"><div><b>① 실습 찾기</b>앱과 실습 유형별로 빠르게 이동합니다.</div><div><b>② 파일 준비</b>필요한 실습파일을 각 카드에서 먼저 확인합니다.</div><div><b>③ 한 번에 복사</b>프롬프트 오른쪽의 ‘복사’ 단추를 누릅니다.</div></section><section class="app" id="Word-Copilot" style="--accent:#2563eb"><div class="app-head"><span class="eyebrow">MICROSOFT 365 COPILOT</span><h2>Word Copilot</h2></div><div class="module"><h3>1. 초안 만들기 (Draft)</h3><div class="labgrid"><article class="card"><div class="cardtop"><span class="badge">실습1</span><h4>편집 허용 / 채팅만 모드 비교</h4></div><div class="prompt"><button class="copy" onclick="copyPrompt(this,'p-Word-Copilot-1-초안-만들기-Draft-실습1-0')">복사</button><pre id="p-Word-Copilot-1-초안-만들기-Draft-실습1-0">기업에서 ChatGPT와 Microsoft 365 Copilot을 활용하는 경우를 비교해줘.</pre></div></article><article class="card"><div class="cardtop"><span class="badge">실습2</span><h4>신제품 출시 내부 공지문 작성</h4></div><div class="prompt"><button class="copy" onclick="copyPrompt(this,'p-Word-Copilot-1-초안-만들기-Draft-실습2-0')">복사</button><pre id="p-Word-Copilot-1-초안-만들기-Draft-실습2-0">전 직원 대상 내부 공지문 초안을 작성해줘.
+1. 포함 내용
+- 제품 소개
+- 출시 일정
+- 주요 특징
+- 고객 응대 시 유의사항
+2. 분량 : A4 1페이지
+3. 톤앤매너 : 공식적이고 전문적인 어조</pre></div></article><article class="card"><div class="cardtop"><span class="badge">실습3</span><h4>회의록 → 실행 계획서</h4></div><div class="file"><span>📎 필요한 실습파일</span><strong>입력자료 : 회의록.docx</strong></div><div class="prompt"><button class="copy" onclick="copyPrompt(this,'p-Word-Copilot-1-초안-만들기-Draft-실습3-0')">복사</button><pre id="p-Word-Copilot-1-초안-만들기-Draft-실습3-0">첨부된 신제품 출시 TF 회의록을 기반으로 프로젝트 실행 계획서를 작성해줘.
+포함 내용
+- 주요 결정사항
+- 담당자
+- 일정
+- 주요 리스크
+- 후속 Action Item</pre></div></article><article class="card"><div class="cardtop"><span class="badge">실습4</span><h4>회의록 → 경영진 보고서</h4></div><div class="file"><span>📎 필요한 실습파일</span><strong>입력자료 : 회의록.docx</strong></div><div class="prompt"><button class="copy" onclick="copyPrompt(this,'p-Word-Copilot-1-초안-만들기-Draft-실습4-0')">복사</button><pre id="p-Word-Copilot-1-초안-만들기-Draft-실습4-0">첨부된 회의록을 기반으로 한국 지사장 보고용 1페이지 요약 보고서를 작성해줘.
+포함 내용
+- 핵심 진행 현황
+- 주요 리스크
+- 의사결정 필요사항
+- 향후 일정</pre></div></article></div></div><div class="module"><h3>2. 재작성·편집 (Rewrite)</h3><div class="labgrid"><article class="card"><div class="cardtop"><span class="badge">실습5</span><h4>재작성, 편집하기</h4></div><div class="file"><span>📎 필요한 실습파일</span><strong>작업자료 : 앞 단계에서 생성한 경영진 보고서</strong></div><div class="sub">실습 예제 5-1</div><div class="prompt"><button class="copy" onclick="copyPrompt(this,'p-Word-Copilot-2-재작성-편집-Rewrite-실습5-0')">복사</button><pre id="p-Word-Copilot-2-재작성-편집-Rewrite-실습5-0">문서의 본문 표 4개를 모두 눈금 표 4 - 강조색 1 스타일로 변경하고 줄 무늬 행 없이, 머리글 글자가 잘 보이도록 정리해줘</pre></div><div class="sub">실습 예제 5-2</div><div class="prompt"><button class="copy" onclick="copyPrompt(this,'p-Word-Copilot-2-재작성-편집-Rewrite-실습5-1')">복사</button><pre id="p-Word-Copilot-2-재작성-편집-Rewrite-실습5-1">이 표를 문장 설명으로 바꿔줘.</pre></div><div class="sub">실습 예제 5-3</div><div class="prompt"><button class="copy" onclick="copyPrompt(this,'p-Word-Copilot-2-재작성-편집-Rewrite-실습5-2')">복사</button><pre id="p-Word-Copilot-2-재작성-편집-Rewrite-실습5-2">선택한 텍스트를 구조화하고 가독성을 높여줘.</pre></div></article><article class="card"><div class="cardtop"><span class="badge">실습6</span><h4>임원 보고용으로 더 간결하게</h4></div><div class="file"><span>📎 필요한 실습파일</span><strong>작업자료 : 앞 단계에서 생성한 실행계획서</strong></div><div class="prompt"><button class="copy" onclick="copyPrompt(this,'p-Word-Copilot-2-재작성-편집-Rewrite-실습6-0')">복사</button><pre id="p-Word-Copilot-2-재작성-편집-Rewrite-실습6-0">이 실행계획서를 한국 지사장이 3분 안에 읽을 수 있도록
+- 핵심 내용만 남기고
+- 중복 내용을 제거하고
+- 한 장 분량으로 요약해줘.
+톤앤매너는 임원 보고용으로 작성해줘.</pre></div></article><article class="card"><div class="cardtop"><span class="badge">실습7</span><h4>실행계획서 → Action Item 표</h4></div><div class="file"><span>📎 필요한 실습파일</span><strong>작업자료 : 앞 단계에서 생성한 실행계획서</strong></div><div class="prompt"><button class="copy" onclick="copyPrompt(this,'p-Word-Copilot-2-재작성-편집-Rewrite-실습7-0')">복사</button><pre id="p-Word-Copilot-2-재작성-편집-Rewrite-실습7-0">이 문서에서 실행 과제만 추출하여
+- 담당부서
+- 담당자
+- 마감일
+- 우선순위
+형태의 표로 정리해줘.</pre></div></article></div></div><div class="module"><h3>3. 요약 (Summarize)</h3><div class="labgrid"><article class="card"><div class="cardtop"><span class="badge">실습8</span><h4>핵심 3가지로 요약 </h4></div><div class="file"><span>📎 필요한 실습파일</span><strong>작업파일 : 계약서.docx</strong></div><div class="prompt"><button class="copy" onclick="copyPrompt(this,'p-Word-Copilot-3-요약-Summarize-실습8-0')">복사</button><pre id="p-Word-Copilot-3-요약-Summarize-실습8-0">이 계약서를 핵심 3가지로 요약해줘.</pre></div></article><article class="card"><div class="cardtop"><span class="badge">실습9</span><h4>의무사항과 기한만 추출</h4></div><div class="file"><span>📎 필요한 실습파일</span><strong>작업파일 : 계약서.docx</strong></div><div class="prompt"><button class="copy" onclick="copyPrompt(this,'p-Word-Copilot-3-요약-Summarize-실습9-0')">복사</button><pre id="p-Word-Copilot-3-요약-Summarize-실습9-0">이 계약서에서
+1. 대행사가 수행해야 하는 의무
+2. 관련 기한
+3. 제출해야 하는 산출물
+만 표로 정리해줘.</pre></div></article></div></div><div class="module"><h3>4. 문서에 대해 질문 (Chat)</h3><div class="labgrid"><article class="card"><div class="cardtop"><span class="badge">실습10</span><h4>문서에 대한 질문 : 리스크 찾기, 위험요소, 보완점 확인</h4></div><div class="file"><span>📎 필요한 실습파일</span><strong>입력자료 : 계약서.docx</strong></div><div class="prompt"><button class="copy" onclick="copyPrompt(this,'p-Word-Copilot-4-문서에-대해-질문-Chat-실습10-0')">복사</button><pre id="p-Word-Copilot-4-문서에-대해-질문-Chat-실습10-0">Dyson Korea 담당자 관점에서 주의해야 할 리스크와 관리 포인트를 정리해줘.
+이 계약서의 주요 위험 요소를 알려주고, 계약서의 보완할 점을 요약해줘.</pre></div></article><article class="card"><div class="cardtop"><span class="badge">실습11</span><h4>문서에 대한 질문 : 결론이 서론의 목표와 일치하나?</h4></div><div class="file"><span>📎 필요한 실습파일</span><strong>입력자료 : 회의록.docx</strong></div><div class="prompt"><button class="copy" onclick="copyPrompt(this,'p-Word-Copilot-4-문서에-대해-질문-Chat-실습11-0')">복사</button><pre id="p-Word-Copilot-4-문서에-대해-질문-Chat-실습11-0">결론이 서론의 목표와 일치하나?
+다음 회의에서 확인해야 할 질문 목록을 생성해줘.
+이 문서에서 질문 추천해줘.</pre></div></article></div></div></section><section class="app" id="PowerPoint-Copilot" style="--accent:#f97316"><div class="app-head"><span class="eyebrow">MICROSOFT 365 COPILOT</span><h2>PowerPoint Copilot</h2></div><div class="module"><h3>1. 프레젠테이션 생성 (Draft)</h3><div class="labgrid"><article class="card"><div class="cardtop"><span class="badge">실습1</span><h4>프롬프트로 슬라이드 만들기</h4></div><div class="prompt"><button class="copy" onclick="copyPrompt(this,'p-PowerPoint-Copilot-1-프레젠테이션-생성-Draft-실습1-0')">복사</button><pre id="p-PowerPoint-Copilot-1-프레젠테이션-생성-Draft-실습1-0">2030 세대가 즐기는 인기 취미를 주제로, 밝고 트렌디한 분위기의 발표자료를 7장으로 만들어줘. 운동, 여행, 자기계발, 콘텐츠 제작 등 다양한 취미를 사진과 함께 소개해줘.</pre></div></article><article class="card"><div class="cardtop"><span class="badge">실습2</span><h4>근거자료로 슬라이드 만들기</h4></div><div class="prompt"><button class="copy" onclick="copyPrompt(this,'p-PowerPoint-Copilot-1-프레젠테이션-생성-Draft-실습2-0')">복사</button><pre id="p-PowerPoint-Copilot-1-프레젠테이션-생성-Draft-실습2-0">이 파일로 신제품 소개 슬라이드를 만들려고 해. 프롬프트 추천해줘.</pre></div></article><article class="card"><div class="cardtop"><span class="badge">실습3</span><h4>생성된 추천 프롬프트</h4></div><div class="prompt"><button class="copy" onclick="copyPrompt(this,'p-PowerPoint-Copilot-1-프레젠테이션-생성-Draft-실습3-0')">복사</button><pre id="p-PowerPoint-Copilot-1-프레젠테이션-생성-Draft-실습3-0">첨부한 &quot;프로젝트 실행 계획서.docx&quot;를 바탕으로 Dyson AirWrap iQ 한국 출시 신제품 소개 슬라이드를 8~10장으로 만들어줘.
+대상: 내부 임원 및 TF 참여 팀(영업·마케팅·고객지원·공급망)
+흐름: 표지 → 출시 개요(1월 첫째 주, 초도 5,000대, 4개 팀) → 팀별 역할 → 마케팅 계획(SNS 티저, 인플루언서 10명, 백화점 체험 이벤트) → 전체 일정 타임라인 → 공급·재고 현황(초도 5,000대 vs 예상 수요 7,000~8,000대, 차트) → 주요 리스크와 대응 → 후속 Action Item → 확인 필요 사항
+문서에 없는 수치나 제품 스펙은 만들지 말고, 문서 내용만 사용해줘.
+디자인: 세련되고 미니멀한 프리미엄 가전 느낌, 짙은 네이비와 밝은 배경에 포인트 컬러 1개, 한국어 맑은 고딕.
+일정은 타임라인, 리스크는 표나 카드, 수요 대비 물량은 차트로 시각화해줘.</pre></div></article></div></div><div class="module"><h3>2. 슬라이드 편집 (Edit)</h3><div class="labgrid"><article class="card"><div class="cardtop"><span class="badge">실습4</span><h4>슬라이드 편집 : 특정 주제 관련 슬라이드 추가</h4></div><div class="prompt"><button class="copy" onclick="copyPrompt(this,'p-PowerPoint-Copilot-2-슬라이드-편집-Edit-실습4-0')">복사</button><pre id="p-PowerPoint-Copilot-2-슬라이드-편집-Edit-실습4-0">이 슬라이드 다음에 &quot;출시 일정과 실행 체계&quot; 주제로 슬라이드 한 장 추가해줘.</pre></div></article><article class="card"><div class="cardtop"><span class="badge">실습5</span><h4>슬라이드 편집 : 이미지 생성 및 삽입</h4></div><div class="prompt"><button class="copy" onclick="copyPrompt(this,'p-PowerPoint-Copilot-2-슬라이드-편집-Edit-실습5-0')">복사</button><pre id="p-PowerPoint-Copilot-2-슬라이드-편집-Edit-실습5-0">표지에 적합한 이미지를 삽입해줘.</pre></div></article><article class="card"><div class="cardtop"><span class="badge">실습6</span><h4>슬라이드 편집 : 스킬 Skills</h4></div><div class="prompt"><button class="copy" onclick="copyPrompt(this,'p-PowerPoint-Copilot-2-슬라이드-편집-Edit-실습6-0')">복사</button><pre id="p-PowerPoint-Copilot-2-슬라이드-편집-Edit-실습6-0">이 슬라이드 시각화 (visualize-this-slide) 이 파일의 템플릿, 테마 및 톤앤매너에 맞게 시각화해줘.</pre></div></article><article class="card"><div class="cardtop"><span class="badge">실습7</span><h4>슬라이드 편집 : 스킬 Skills - 대화형 슬라이드 만들기 (interactive-slide)</h4></div><div class="prompt"><button class="copy" onclick="copyPrompt(this,'p-PowerPoint-Copilot-2-슬라이드-편집-Edit-실습7-0')">복사</button><pre id="p-PowerPoint-Copilot-2-슬라이드-편집-Edit-실습7-0">Create an interactive, full-bleed slide: a draggable before/after reveal of a butterfly. Imagery (AI-generated photos, not vector art): a photorealistic butterfly, wings open, straight-on, cut out with transparency; and a heavily blurred green foliage background, no subject. Composition: edge to edge, no margins. One vertical divider with a small circular drag handle; dragging sweeps between halves. Caption at the bottom of the slide: &quot;◀ Drag the divider ▶&quot;. Use the same darkened greenery (~40% brightness) behind both halves so only the butterfly&#x27;s rendering differs. Left = the photographic butterfly (Analog). Right = the same butterfly, same size and position, re-rendered live as white bold ASCII art with a dark outline and soft glow (Digital). Animation: wings flap continuously with eased motion plus a gentle bob; both halves animate from the same values so they align across the divider; wings shouldn&#x27;t collapse too far; the ASCII regenerates each frame so characters reflow. Sizing: identical scale on both sides; compensate for monospace characters being taller than wide so the ASCII isn&#x27;t squashed. Text: heading &quot;The Transformational Journey&quot; with &quot;Transformational&quot; emphasized; labels Analog (left) and Digital (right); nothing else. Responsiveness: scale to any slide size without clipping or scrollbars. Keep embedded images compressed to WebP and the total payload under 300 KB. Make the static preview a real render of the finished visual, not a blank placeholder.</pre></div></article><article class="card"><div class="cardtop"><span class="badge">실습7-1</span><h4>슬라이드 편집 : 스킬 Skills - 대화형 슬라이드 만들기 (interactive-slide)</h4></div><div class="prompt"><button class="copy" onclick="copyPrompt(this,'p-PowerPoint-Copilot-2-슬라이드-편집-Edit-실습7-1-0')">복사</button><pre id="p-PowerPoint-Copilot-2-슬라이드-편집-Edit-실습7-1-0">Inside a Salmon
+Select a numbered hotspot to reveal its explanation. Select × to close it. Opening another hotspot hides the previous explanation.
+1. Brain
+Processes information from the senses.
+Coordinates movement.
+2. Gills
+Take oxygen from the water.
+Release carbon dioxide.
+3. Spine
+Supports the body.
+Protects the spinal cord.
+4. Swim bladder
+Helps control buoyancy.
+Helps the salmon maintain its depth.
+5. Liver
+Processes nutrients.
+Produces bile to help digest fats.
+6. Heart
+Pumps blood through the gills.
+Keeps blood moving around the body.
+7. Intestines
+Continue digestion.
+Absorb nutrients from food.
+8. Stomach
+Uses acid to break down food.
+Uses digestive enzymes to help digest food.
+Hotspot names and locations supplied by the educator. Kidney and muscle structure have no named hotspots on this slide. AI-generated anatomy is illustrative, not a verified anatomical reference.
+Sources:
+U.S. Fish and Wildlife Service, Salmon Anatomy Cheat Sheet: https://www.fws.gov/sites/default/files/documents/03_Salmon%20Anatomy%20Cheat%20Sheet.pdf
+South Puget Sound Salmon Enhancement Group, Salmon Anatomy: https://spsseg.org/salmon-anatomy/
+Explanatory wording follows the draft supplied in the conversation.</pre></div></article></div></div><div class="module"><h3>3. 슬라이드 요약·Q&amp;A (Chat)</h3><div class="labgrid"><article class="card"><div class="cardtop"><span class="badge">실습8</span><h4>슬라이드 요약</h4></div><div class="prompt"><button class="copy" onclick="copyPrompt(this,'p-PowerPoint-Copilot-3-슬라이드-요약-Q-A-Chat-실습8-0')">복사</button><pre id="p-PowerPoint-Copilot-3-슬라이드-요약-Q-A-Chat-실습8-0">이 10장 덱을 핵심 5가지로 요약해줘.</pre></div></article><article class="card"><div class="cardtop"><span class="badge">실습9</span><h4>슬라이드 요약</h4></div><div class="prompt"><button class="copy" onclick="copyPrompt(this,'p-PowerPoint-Copilot-3-슬라이드-요약-Q-A-Chat-실습9-0')">복사</button><pre id="p-PowerPoint-Copilot-3-슬라이드-요약-Q-A-Chat-실습9-0">재무 관련 슬라이드만 찾아줘.</pre></div></article><article class="card"><div class="cardtop"><span class="badge">실습10</span><h4>슬라이드 요약</h4></div><div class="prompt"><button class="copy" onclick="copyPrompt(this,'p-PowerPoint-Copilot-3-슬라이드-요약-Q-A-Chat-실습10-0')">복사</button><pre id="p-PowerPoint-Copilot-3-슬라이드-요약-Q-A-Chat-실습10-0">발표자 노트에 발표 스크립트 넣어줘.</pre></div></article></div></div></section><section class="app" id="Excel-Copilot" style="--accent:#16a34a"><div class="app-head"><span class="eyebrow">MICROSOFT 365 COPILOT</span><h2>Excel Copilot</h2></div><div class="module"><h3>1. 스레드 요약 (Summarize)</h3><div class="labgrid"><article class="card"><div class="cardtop"><span class="badge">실습1</span><h4>수식 생성</h4></div><div class="file"><span>📎 필요한 실습파일</span><strong>실습 파일 : 조건부함수.xlsx – [집계]시트</strong></div><div class="sub">실습1-1</div><div class="prompt"><button class="copy" onclick="copyPrompt(this,'p-Excel-Copilot-1-스레드-요약-Summarize-실습1-0')">복사</button><pre id="p-Excel-Copilot-1-스레드-요약-Summarize-실습1-0">지점별 총 매출합계와 매출건수를 SUMIFS, COUNTIFS로 구해줘. 사용한 수식도 함께 설명해줘.</pre></div><div class="sub">실습1-2</div><div class="prompt"><button class="copy" onclick="copyPrompt(this,'p-Excel-Copilot-1-스레드-요약-Summarize-실습1-1')">복사</button><pre id="p-Excel-Copilot-1-스레드-요약-Summarize-실습1-1">할인율 조건에 맞는 제품의 건수와 수량을 구해줘.</pre></div><div class="sub">실습1-3</div><div class="prompt"><button class="copy" onclick="copyPrompt(this,'p-Excel-Copilot-1-스레드-요약-Summarize-실습1-2')">복사</button><pre id="p-Excel-Copilot-1-스레드-요약-Summarize-실습1-2">제품명을 [제품목록]표에서 찾아보고 같은 제품명이 없으면 [신제품 판정]에 &#x27;신제품&#x27;이라고 표기해줘.</pre></div><div class="sub">실습1-4</div><div class="prompt"><button class="copy" onclick="copyPrompt(this,'p-Excel-Copilot-1-스레드-요약-Summarize-실습1-3')">복사</button><pre id="p-Excel-Copilot-1-스레드-요약-Summarize-실습1-3">신제품 현황의 건수와 금액을 계산해줘.</pre></div></article><article class="card"><div class="cardtop"><span class="badge">실습2</span><h4>수식 생성 및 데이터 정리</h4></div><div class="file"><span>📎 필요한 실습파일</span><strong>실습 파일 : 조건부함수.xlsx – [다중집계]시트</strong></div><div class="sub">실습2-1</div><div class="prompt"><button class="copy" onclick="copyPrompt(this,'p-Excel-Copilot-1-스레드-요약-Summarize-실습2-0')">복사</button><pre id="p-Excel-Copilot-1-스레드-요약-Summarize-실습2-0">k열에 &#x27;지역&#x27;의 목록 리스트로 표현하고, 선택한 셀의 &#x27;지역&#x27;값을 목록에서 선택할 수 있게 만들어줘. 선택한 지역별 총합계와 총건수를 구해줘.</pre></div><div class="sub">실습2-2</div><div class="prompt"><button class="copy" onclick="copyPrompt(this,'p-Excel-Copilot-1-스레드-요약-Summarize-실습2-1')">복사</button><pre id="p-Excel-Copilot-1-스레드-요약-Summarize-실습2-1">품목별 수량합계와 판매건수도 집계해줘.</pre></div></article><article class="card"><div class="cardtop"><span class="badge">실습3</span><h4>수식 생성 및 데이터 정리</h4></div><div class="file"><span>📎 필요한 실습파일</span><strong>실습 파일 : 조건부함수.xlsx – [실습1]시트</strong></div><div class="sub">실습3-1</div><div class="prompt"><button class="copy" onclick="copyPrompt(this,'p-Excel-Copilot-1-스레드-요약-Summarize-실습3-0')">복사</button><pre id="p-Excel-Copilot-1-스레드-요약-Summarize-실습3-0">센터는 중복을 제거하고 고유한 값만 오름차순으로 G5셀에 표시하고 센터별 수량 합계를 집계해줘.</pre></div></article><article class="card"><div class="cardtop"><span class="badge">실습4</span><h4>수식 생성 및 데이터 정리</h4></div><div class="file"><span>📎 필요한 실습파일</span><strong>실습 파일 : 조건부함수.xlsx – [실습2]시트</strong></div><div class="sub">실습4-1</div><div class="prompt"><button class="copy" onclick="copyPrompt(this,'p-Excel-Copilot-1-스레드-요약-Summarize-실습4-0')">복사</button><pre id="p-Excel-Copilot-1-스레드-요약-Summarize-실습4-0">D열의 판매일자 데이터를 날짜 서식에 맞게 변경해줘.</pre></div><div class="sub">실습4-2</div><div class="prompt"><button class="copy" onclick="copyPrompt(this,'p-Excel-Copilot-1-스레드-요약-Summarize-실습4-1')">복사</button><pre id="p-Excel-Copilot-1-스레드-요약-Summarize-실습4-1">D열의 판매일자를 이용하여 E열의 월을 텍스트로 입력해줘. (예:1월, 2월, ...,12월로 표시)</pre></div><div class="sub">실습4-3</div><div class="prompt"><button class="copy" onclick="copyPrompt(this,'p-Excel-Copilot-1-스레드-요약-Summarize-실습4-2')">복사</button><pre id="p-Excel-Copilot-1-스레드-요약-Summarize-실습4-2">월 데이터는 목록에서 선택할 수 있도록 만들어줘. 월 데이터의 목록은 S열에 표시한 후 화면에 보이지 않도록 표시형식을 이용하여 숨겨줘.</pre></div><div class="sub">실습4-4</div><div class="prompt"><button class="copy" onclick="copyPrompt(this,'p-Excel-Copilot-1-스레드-요약-Summarize-실습4-3')">복사</button><pre id="p-Excel-Copilot-1-스레드-요약-Summarize-실습4-3">월과 분류에 따른 다중 조건으로 집계할거야. K열, L열에 판매건수, 총판매금액을 계산해줘.</pre></div><div class="sub">실습4-5</div><div class="prompt"><button class="copy" onclick="copyPrompt(this,'p-Excel-Copilot-1-스레드-요약-Summarize-실습4-4')">복사</button><pre id="p-Excel-Copilot-1-스레드-요약-Summarize-실습4-4">집계한 판매건수와 총판매금액 데이터는 쉼표 스타일을 사용하되 소수점 없이 정수로 표현해줘.</pre></div></article><article class="card"><div class="cardtop"><span class="badge">실습5</span><h4>데이터 분석 : 피벗테이블</h4></div><div class="file"><span>📎 필요한 실습파일</span><strong>실습 파일 : 엑셀BI.xlsx – [피벗]시트</strong></div><div class="prompt"><button class="copy" onclick="copyPrompt(this,'p-Excel-Copilot-1-스레드-요약-Summarize-실습5-0')">복사</button><pre id="p-Excel-Copilot-1-스레드-요약-Summarize-실습5-0">판매 시트를 바탕으로 피벗 시트에 있는 각 제목별로 요약 보고서를 만들어줘. 보고서가 겹치지 않도록 열 너비를 조정하고 보고서 사이에 1열씩 공백으로 띄워줘.</pre></div></article><article class="card"><div class="cardtop"><span class="badge">실습6</span><h4>데이터 분석 및 시각화 : 대시보드</h4></div><div class="file"><span>📎 필요한 실습파일</span><strong>실습 파일 : 엑셀BI.xlsx – [대시보드]시트</strong></div><div class="prompt"><button class="copy" onclick="copyPrompt(this,'p-Excel-Copilot-1-스레드-요약-Summarize-실습6-0')">복사</button><pre id="p-Excel-Copilot-1-스레드-요약-Summarize-실습6-0">작성된 피벗 시트의 자료를 참고해서 판매 시트를 바탕으로 &#x27;대시보드&#x27;시트에 총매출금액·총매출이익·판매건수·평균할인율 KPI 카드와 연도별 매출 추이, 거래처 TOP10 차트가 있는 대시보드를 만들어줘.</pre></div></article></div></div></section></main><footer>월간 박은진 · Microsoft 365 Copilot 2일차 실습용 프롬프트북</footer><div id="copy-status" role="status" aria-live="polite"></div><script>
+let statusTimer;
+function showCopyStatus(message){
+  clearTimeout(statusTimer);
+  document.getElementById('copy-status').textContent=message;
+  statusTimer=setTimeout(()=>{document.getElementById('copy-status').textContent=''},3500);
+}
+async function copyPrompt(btn,id){
+  const pre=document.getElementById(id);
+  const text=pre.textContent;
+  let copied=false;
+  try{
+    if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText(text);copied=true}
+  }catch{}
+  if(!copied){
+    const t=document.createElement('textarea');
+    t.value=text;t.setAttribute('aria-label','복사할 프롬프트');
+    t.style.cssText='position:fixed;top:0;left:0;opacity:0';
+    document.body.appendChild(t);t.focus();t.select();
+    try{copied=document.execCommand('copy')}catch{}
+    t.remove();
+  }
+  if(!copied){
+    const range=document.createRange();range.selectNodeContents(pre);
+    const selection=window.getSelection();selection.removeAllRanges();selection.addRange(range);
+    pre.focus({preventScroll:true});
+    showCopyStatus('자동 복사가 제한되어 있습니다. 선택된 프롬프트를 직접 복사해 주세요.');
+    return;
+  }
+  btn.textContent='복사됨';btn.classList.add('done');btn.focus({preventScroll:true});
+  showCopyStatus('프롬프트를 복사했습니다. Copilot에 붙여넣어 주세요.');
+  setTimeout(()=>{btn.textContent='복사';btn.classList.remove('done')},1400);
+}
+document.querySelectorAll('.prompt').forEach(box=>{
+  const button=box.querySelector('.copy');const pre=box.querySelector('pre');
+  pre.tabIndex=0;button.type='button';
+  const card=box.closest('.card');const app=box.closest('.app');
+  button.setAttribute('aria-label',app.querySelector('h2').textContent+' '+card.querySelector('.badge').textContent+' '+card.querySelector('h4').textContent+' 프롬프트 복사');
+});
+</script></body></html>
