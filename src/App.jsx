@@ -112,7 +112,14 @@ const labMaterials = [
     link: `${import.meta.env.BASE_URL}labs/course02/`,
     tags: ['Excel · VBA', '데이터 분석', '실습 프롬프트북'],
   },
-  { status: 'Coming Soon', title: '과정 03', text: '세부 실습자료와 안내는 추후 이 공간에 채워질 예정입니다.' },
+  {
+    status: 'Course 03',
+    title: '월간 박은진',
+    text: '시즌0 · 2일차: M365 Copilot을 활용한 비즈니스 워크플로우 혁신(AB-730). Word·PowerPoint·Excel 실습 프롬프트를 복사해 바로 활용하세요.',
+    link: `${import.meta.env.BASE_URL}labs/월간 박은진/시즌0/2일차/index.html`,
+    linkLabel: '실습 프롬프트 북 열기 →',
+    tags: ['시즌0', '2일차', '실습 프롬프트 북'],
+  },
   { status: 'Coming Soon', title: '과정 04', text: '세부 실습자료와 안내는 추후 이 공간에 채워질 예정입니다.' },
   { status: 'Coming Soon', title: '과정 05', text: '세부 실습자료와 안내는 추후 이 공간에 채워질 예정입니다.' },
   { status: 'Coming Soon', title: '과정 06', text: '세부 실습자료와 안내는 추후 이 공간에 채워질 예정입니다.' },
@@ -765,7 +772,7 @@ function App() {
                   <h3>{lab.title}</h3>
                   <p>{lab.text}</p>
                   {lab.tags ? <div className="lab-tags">{lab.tags.map((tag) => <em key={tag}>{tag}</em>)}</div> : null}
-                  {lab.link ? <a className="lab-link" href={lab.link} onClick={lab.link.startsWith('#') ? openLabDetail : undefined}>{lab.status === 'Course 02' ? '프롬프트북 열기 →' : '강의 보기 →'}</a> : null}
+                  {lab.link ? <a className="lab-link" href={lab.link} onClick={lab.link.startsWith('#') ? openLabDetail : undefined}>{lab.linkLabel || (lab.status === 'Course 02' ? '프롬프트북 열기 →' : '강의 보기 →')}</a> : null}
                 </article>
               ))}
             </div>
