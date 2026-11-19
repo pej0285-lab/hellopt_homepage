@@ -7,3 +7,34 @@
 @media(max-width:1050px){:root{--side:200px}}
 @media(max-width:600px){:root{--side:116px}.day-toggle{font-size:13px;padding:10px 8px;border-left-width:3px}.app-menu{padding-left:4px}.day-menu .app-menu a{font-size:11px;padding:9px 5px;text-align:left;line-height:1.5;overflow-wrap:anywhere}.day-menu>a{text-align:left;padding-left:12px}.lesson-heading{padding:22px 12px}h1{font-size:21px;word-break:keep-all;overflow-wrap:anywhere}.lesson-label{font-size:12px}.promptbook{padding-left:10px;padding-right:10px}}
 @media(prefers-reduced-motion:reduce){.day-toggle span{transition:none}}
+
+.day-menu > a.active {
+  color: #6d28d9;
+  background: #ede9fe;
+  border-left-color: #7c3aed;
+}
+.practice-note {
+  margin: 0 20px 16px;
+  color: #475569;
+  font-size: 14px;
+}
+.file a {
+  color: #664d03;
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  overflow-wrap: anywhere;
+}
+.file a span { display: inline; }
+.example summary {
+  padding: 0 20px 14px;
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+}
+@media (max-width: 600px) {
+  .practice-note, .example summary { font-size: 13px; }
+  .practice-note { margin-left: 12px; margin-right: 12px; }
+  .example summary { padding-left: 12px; padding-right: 12px; }
+}

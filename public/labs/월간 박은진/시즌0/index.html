@@ -11,12 +11,20 @@
 <div class="classroom">
 <nav class="day-menu" aria-label="일차별 강의">
 <button id="day-2-toggle" class="day-toggle" type="button" aria-expanded="true" aria-controls="day-2-apps">2일차<span aria-hidden="true">⌄</span></button>
-<ul id="day-2-apps" class="app-menu">
+<ul id="day-2-apps" class="app-menu" data-lesson-day="2">
 <li><a href="#day-2/word" data-app="word">Word Copilot</a></li>
 <li><a href="#day-2/powerpoint" data-app="powerpoint">PowerPoint Copilot</a></li>
 <li><a href="#day-2/excel" data-app="excel">Excel Copilot</a></li>
 </ul>
-<a href="#day-3" data-day="3">3일차</a></nav>
+<a href="#day-3" data-day="3">3일차</a>
+<ul id="day-3-apps" class="app-menu" data-lesson-day="3" hidden>
+<li><a href="#day-3/workspace" data-app="workspace">작업 영역</a></li>
+<li><a href="#day-3/projects" data-app="projects">프로젝트</a></li>
+<li><a href="#day-3/researcher" data-app="researcher">리서치 도구</a></li>
+<li><a href="#day-3/analyst" data-app="analyst">분석가</a></li>
+<li><a href="#day-3/outlook" data-app="outlook">Outlook Copilot</a></li>
+<li><a href="#day-3/teams" data-app="teams">Teams Copilot</a></li>
+</ul></nav>
 <main id="lesson">
 <header class="lesson-heading"><p class="kicker" id="lesson-meta">시즌0 · 2일차 · AB-730</p><h1 id="lesson-title" tabindex="-1">M365 Copilot을 활용한 비즈니스 워크플로우 혁신</h1><p class="lesson-label" id="lesson-label">실습 프롬프트북</p></header>
 <div class="promptbook" id="lesson-content" aria-busy="true"><p role="status">프롬프트북을 불러오는 중입니다.</p></div>
